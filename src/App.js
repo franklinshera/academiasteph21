@@ -1,13 +1,32 @@
 
 import './App.css';
 
+import  Logo from './images/as21logo.png';
+import  RightArrow from './images/forward.svg';
+import  IgIcon from './images/as21ig.svg';
+import  MailIcon from './images/as21mail.svg';
+import  StarIcon from './images/star.svg';
+import  HalfStarIcon from './images/star_half_empty.svg';
+import  EmptyStarIcon from './images/empty_star.svg';
+import  ApproveIcon from './images/approval.svg';
+import  TermPaperIcon from './images/rules.svg';
+import  ResearchPaperIcon from './images/research.svg';
+import  WhitePaperIcon from './images/whitepaper.svg';
+import  AssignmentIcon from './images/assignment.svg';
+import  CaseStudyIcon from './images/casestudy.svg';
+import  DissertationIcon from './images/dissertations.svg';
+
+
+
+
+
 function App() {
   return (
     <div className="bg-gray-100">
     <nav id="navigation" className="h-16 nav-main">
         <div className="nav-left">
             <div className="logo">
-                <img src="./images/as21logo.png" className="h-8" alt="academiasteph21 logo"></img>
+                <img src={Logo} className="h-8" alt="academiasteph21 logo"/>
                 <span className="ml-2 text-lg">AcademiaSteph21</span>
             </div>
         </div>
@@ -55,14 +74,14 @@ function App() {
             <p className="cta-lead">As <span className="p-1 px-2 font-semibold bg-white text-primary-1">Writers</span></p>
 
             <p className="cta-word">
-                We are inclined to optimum dedication in
-                providing top-quality services braced with
-                inimitable creativity and perfectionism.
-                The services we offer stand out for
+                We are inclined to optimum dedication in <br/>
+                providing top-quality services braced with<br/>
+                inimitable creativity and perfectionism.<br/>
+                The services we offer stand out for<br/>
                 themselves in uniqueness.
             </p>
 
-            <button className="strt-btn">CHECKOUT OUR SOLUTIONS  <img src="./images/forward.svg" className="inline h-5 lg:h-8 xl:ml-2 md:ml-3" alt="Check Our Solutions Button"></img></button>
+            <button className="strt-btn">CHECKOUT OUR SOLUTIONS  <img src={RightArrow} className="inline h-5 lg:h-8 xl:ml-2 md:ml-3" alt="Check Our Solutions Button"></img></button>
 
         </div>
         
@@ -73,34 +92,34 @@ function App() {
                 <h1 className="block w-full my-10 text-center header-text">SERVICES</h1> 
           
             <div className="service">
-                <img src="./images/rules.svg" className="h-12" alt="Term paper icon"></img>
+                <img src={TermPaperIcon} className="h-12" alt="Term paper icon"></img>
                 <span>Term Papers</span>
             </div>
 
             
             <div className="service sm:justify-start xl:justify-center">
-                <img src="./images/research.svg" className="h-12" alt="Term paper icon"></img>
+                <img src={ResearchPaperIcon} className="h-12" alt="Research Paper icon"></img>
                 <span>Research Paper</span>
             </div>
 
             <div className="service">
-                <img src="./images/whitepaper.svg" className="h-12" alt="Term paper icon"></img>
+                <img src={WhitePaperIcon} className="h-12" alt="White Paper icon"></img>
                 <span>White Paper</span>
             </div>
 
             <div className="service sm:justify-start xl:justify-center">
-                <img src="./images/assignment.svg" className="h-12" alt="Term paper icon"></img>
+                <img src={AssignmentIcon} className="h-12" alt="Class Assignment icon"></img>
                 <span>Class Assignment</span>
             </div>
 
             
             <div className="service">
-                <img src="./images/casestudy.svg" className="h-12" alt="Term paper icon"></img>
+                <img src={CaseStudyIcon} className="h-12" alt="Case Study icon"></img>
                 <span>Case Study</span>
             </div>
 
             <div className="service sm:justify-start xl:justify-center">
-                <img src="./images/dissertations.svg" className="h-12" alt="Term paper icon"></img>
+                <img src={DissertationIcon} className="h-12" alt="Dissertation icon"></img>
                 <span>Dissertation</span>
             </div>
 
@@ -114,7 +133,7 @@ function App() {
             <div className="view">
                 <p className="text-4xl font-bold num text-primary-1">2000</p>
                 <p className="text-center caption">
-                    Projects 
+                    Projects  <br/>
                     Completed
                 </p>
             </div>
@@ -123,7 +142,7 @@ function App() {
             <div className="view">
                 <p className="text-4xl font-bold num text-primary-1">85</p>
                 <p className="text-center caption">
-                    Countries 
+                    Countries  <br/>
                     Represented
                 </p>
             </div>
@@ -131,7 +150,7 @@ function App() {
             <div className="view">
                 <p className="text-4xl font-bold num text-primary-1">95%</p>
                 <p className="text-center caption">
-                    Success 
+                    Success  <br/>
                     Rate
                 </p>
             </div>
@@ -139,7 +158,7 @@ function App() {
             <div className="view">
                 <p className="text-4xl font-bold num text-primary-1">100+</p>
                 <p className="text-center caption">
-                    Active 
+                    Active <br/>
                     Tutors
                 </p>
             </div>
@@ -162,37 +181,37 @@ function App() {
         <div className="score-card">
 
             <div className="score-start">
-                <img src="./images/approval.svg" className="inline h-7 w-7" alt="Approved Service Icon"></img>
+                <img src={ApproveIcon} className="inline h-7 w-7" alt="Approved Service Icon"></img>
                 <span className="">Our services are at optimal quality</span>
             </div>
 
             
             <div className="score-end">
-                <img src="./images/approval.svg" className="inline h-7 w-7" alt="Approved Service Icon"></img>
+                <img src={ApproveIcon} className="inline h-7 w-7" alt="Approved Service Icon"></img>
                 <span className="">Top-notch tutors at your disposal</span>
             </div>
 
 
            <div className=" score-start">
-                <img src="./images/approval.svg" className="inline h-7 w-7" alt="Approved Service Icon"></img>
+                <img src={ApproveIcon} className="inline h-7 w-7" alt="Approved Service Icon"></img>
                 <span className="">Clients Are Our Top Priority</span>
             </div>
 
             
             <div className="score-end">
-                <img src="./images/approval.svg" className="inline h-7 w-7" alt="Approved Service Icon"></img>
+                <img src={ApproveIcon} className="inline h-7 w-7" alt="Approved Service Icon"></img>
                 <span className="">Responsive support</span>
             </div>
 
 
             <div className="score-start">
-                <img src="./images/approval.svg" className="inline h-7 w-7" alt="Approved Service Icon"></img>
+                <img src={ApproveIcon} className="inline h-7 w-7" alt="Approved Service Icon"></img>
                 <span className="">Delivery on time</span>
             </div>
 
             
             <div className="score-end">
-                <img src="./images/approval.svg" className="inline h-7 w-7" alt="Approved Service Icon"></img>
+                <img src={ApproveIcon} className="inline h-7 w-7" alt="Approved Service Icon"></img>
                 <span className="">Cheap rates</span>
             </div>
         </div>
@@ -339,11 +358,11 @@ function App() {
 
                 <div className=" rate-date">
                     <div className="rate">
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star_half_empty.svg" className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={HalfStarIcon} className="inline rating-star" alt="Rating Star"></img>
                     </div>
 
                     <div className="date ">JUN 28,2020</div>
@@ -367,11 +386,11 @@ function App() {
 
                 <div className="rate-date">
                     <div className="rate">
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
                     </div>
 
                     <div className=" date">MAR 02,2018</div>
@@ -395,11 +414,11 @@ function App() {
 
                 <div className=" rate-date">
                     <div className="rate">
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/star.svg" className="inline rating-star" alt="Rating Star"></img>
-                        <img src="./images/empty_star.svg" className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
+                        <img src={EmptyStarIcon} className="inline rating-star" alt="Rating Star"></img>
                     </div>
 
                     <div className="date">SEP 19,2017</div>
@@ -475,20 +494,20 @@ function App() {
         <div className="details">
            
                 <div className="logo">
-                    <img src="./images/as21logo.png" className="h-7 lg:h-8" alt="academiasteph21 logo"></img>
+                    <img src={Logo} className="h-7 lg:h-8" alt="academiasteph21 logo"></img>
                     <span className="ml-2 text-xl">
                         AcademiaSteph21                       
                     </span>
                 </div>
              
                 <div className="logo">
-                    <img src="./images/as21ig.svg" className="h-5 lg:h-8" alt="academiasteph21 logo"></img>
+                    <img src={IgIcon} className="h-5 lg:h-8" alt="academiasteph21 logo"></img>
                     <span className="ml-2 text-lg">@academiasteph21</span>
                 </div>
 
                 
                 <div className="logo">
-                    <img src="./images/as21mail.svg" className="h-4 lg:h-6" alt="academiasteph21 logo"></img>
+                    <img src={MailIcon} className="h-4 lg:h-6" alt="academiasteph21 logo"></img>
                     <span className="ml-2 text-lg">info@academiasteph21.com</span>
                 </div>
 

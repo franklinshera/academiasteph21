@@ -1,4 +1,4 @@
-
+import {useState} from 'react'
 import './App.css';
 
 import  Logo from './images/as21logo.png';
@@ -15,12 +15,58 @@ import  WhitePaperIcon from './images/whitepaper.svg';
 import  AssignmentIcon from './images/assignment.svg';
 import  CaseStudyIcon from './images/casestudy.svg';
 import  DissertationIcon from './images/dissertations.svg';
+import { RatingCard } from './components/RatingCard';
 
 
 
 
 
 function App() {
+
+const [ratings,setRating]  = useState([
+    {
+        customerName: 'Franklin Shera',
+        rating: 3.5,
+        created_at: "JUN 28, 2020",
+        remarks: `The writer worked for everything I 
+            needed. I had some questions that were 
+            answered promptly and professionally.  
+
+            And.... they validated that my experiences  
+            could work towards a new career!`
+    },
+    {
+        customerName: 'Kimani Stephen',
+        rating: 4.5,
+        created_at: "MAY 09, 2018",
+        remarks: `The writer worked for everything I 
+            needed. I had some questions that were 
+            answered promptly and professionally.  
+
+            And.... they validated that my experiences  
+            could work towards a new career!`
+    },
+    {
+        customerName: 'Ann Kanyiva',
+        rating: 5,
+        created_at: "SEP 21, 2016",
+        remarks: `The writer worked for everything I 
+            needed. I had some questions that were 
+            answered promptly and professionally.  
+
+            And.... they validated that my experiences  
+            could work towards a new career!`
+    }
+
+
+])
+
+
+
+
+
+
+
   return (
     <div className="bg-gray-100">
     <nav id="navigation" className="h-16 nav-main">
@@ -173,8 +219,8 @@ function App() {
             WHY CHOOSE OUR ESSAY SERVICE
         </h1>
         <p className="px-5 mt-12 text-xl text-center lg:text-2xl text-dark-5">
-            We seek to help students with assignments all to relieve them of their busy schedules.
-            Most students find it hard to balance student life, family and work.
+            We seek to help students with assignments all to relieve them of their busy schedules.<br/>
+            Most students find it hard to balance student life, family and work.<br/>
             We step in to help with assignments for we care. 
         </p>
 
@@ -273,8 +319,8 @@ function App() {
                 SUBJECTS AVAILABLE
             </h1>
 
-            <p className="px-5 py-8 text-center">
-                Our team of experts is vast in various disciplines, something that we pride in as a team. 
+            <p className="px-5 py-8 text-center sm:text-xl">
+                Our team of experts is vast in various disciplines, something that we pride in as a team. <br/>
                 We offer services in line with the following subjects.
             </p>
        </div>
@@ -350,8 +396,13 @@ function App() {
         </h1>
 
         <div className="cards-list">
+
+
+            { ratings.map( rate => (
+                <RatingCard cardData={rate} />
+            ) ) }
             
-            <div className="say-card">
+            {/* <div className="say-card">
                 <div className=" name">
                     Franklin Shera
                 </div>
@@ -433,7 +484,7 @@ function App() {
                     could work towards a new career!
                 </div>
             </div>
-
+ */}
 
 
 

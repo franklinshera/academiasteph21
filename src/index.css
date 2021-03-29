@@ -474,8 +474,6 @@ footer{
 
 
 
-
-
 .cta-word{
     @apply text-lg sm:text-2xl lg:text-2xl xl:text-3xl;
 }
@@ -484,7 +482,8 @@ footer{
 
 
 .cta p{
-    margin-bottom: 50px;
+    @apply mb-5;
+    /* margin-bottom: 20px; */
 }
 
 
@@ -501,9 +500,9 @@ footer{
 
 
 .btn-pri{
-    @apply text-white rounded-full;
-    margin-top: 40px;
-    padding: 10px 45px;
+    @apply py-3 mt-10 text-white rounded-full px-11;
+    /* margin-top: 40px;
+    padding: 10px 45px; */
     background: linear-gradient(100deg,#FAA63B, #F27323);
     transition: background .5s ease-out;
 }

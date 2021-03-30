@@ -1,13 +1,10 @@
 import {useState} from 'react'
 import './App.css';
 
-import  Logo from './images/as21logo.png';
+
+
+//icons
 import  RightArrow from './images/forward.svg';
-import  IgIcon from './images/as21ig.svg';
-import  MailIcon from './images/as21mail.svg';
-import  StarIcon from './images/star.svg';
-import  HalfStarIcon from './images/star_half_empty.svg';
-import  EmptyStarIcon from './images/empty_star.svg';
 import  ApproveIcon from './images/approval.svg';
 import  TermPaperIcon from './images/rules.svg';
 import  ResearchPaperIcon from './images/research.svg';
@@ -15,7 +12,14 @@ import  WhitePaperIcon from './images/whitepaper.svg';
 import  AssignmentIcon from './images/assignment.svg';
 import  CaseStudyIcon from './images/casestudy.svg';
 import  DissertationIcon from './images/dissertations.svg';
-import { RatingCard } from './components/RatingCard';
+
+
+
+//components
+import  RatingCard from './components/RatingCard';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Overlay from './components/Overlay';
 
 
 
@@ -68,51 +72,13 @@ const [ratings,setRating]  = useState([
 
 
   return (
+  <>
+    <Overlay/>
+
     <div className="bg-gray-100">
-    <nav id="navigation" className="h-16 nav-main">
-        <div className="nav-left">
-            <div className="logo">
-                <img src={Logo} className="h-8" alt="academiasteph21 logo"/>
-                <span className="ml-2 text-lg">AcademiaSteph21</span>
-            </div>
-        </div>
+    
+    <Header/>
 
-        <div className="toggler">
-            <span className="menu-line-one"></span>
-            <span className="menu-line-two"></span>
-            <span className="menu-line-three"></span>
-        </div>
-
-        <div className=" nav-right">
-            <li className=" navlink hover:border-b-2">
-                <a href="#navigation">Home</a>
-            </li>
-            <li className="navlink hover:border-b-2">
-                <a href="#services">Services</a>
-            </li>
-            <li className="navlink hover:border-b-2">
-                <a href="#contact">Contact</a>
-            </li>
-           
-            
-        </div>
-    </nav>
-
-    <div id="mobmenu" className="flex items-center justify-center hidden mobile-nav sm:hidden">
-        <div className="flex flex-col items-center justify-center mid">
-            <li className="my-8 navlink hover:border-b-2">
-                <a href="#navigation">Home</a>
-            </li>
-            <li className="my-8 navlink hover:border-b-2">
-                <a href="#services">Services</a>
-            </li>
-            <li className="my-8 navlink hover:border-b-2">
-                <a href="#contact">Contact</a>
-            </li>
-            
-            
-        </div>
-    </div>
     <div className="hero" >
 
         <div className="cta">
@@ -176,6 +142,7 @@ const [ratings,setRating]  = useState([
     <div className="overview">
         <h1 className="header-text">OVERVIEW</h1>
         <div className="views">
+            
             <div className="view">
                 <p className="text-4xl font-bold num text-primary-1">2000</p>
                 <p className="text-center caption">
@@ -382,7 +349,7 @@ const [ratings,setRating]  = useState([
                 All Branches of Sciences 
             </span>
 
-   </div>
+          </div>
       </div>
 
        
@@ -398,97 +365,11 @@ const [ratings,setRating]  = useState([
         <div className="cards-list">
 
 
-            { ratings.map( rate => (
-                <RatingCard cardData={rate} />
+            { ratings.map( (rate,index) => (
+                <RatingCard cardData={rate} key={index} />
             ) ) }
             
-            {/* <div className="say-card">
-                <div className=" name">
-                    Franklin Shera
-                </div>
-
-                <div className=" rate-date">
-                    <div className="rate">
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={HalfStarIcon} className="inline rating-star" alt="Rating Star"></img>
-                    </div>
-
-                    <div className="date ">JUN 28,2020</div>
-                </div>
-
-                <div className="remarks">
-                    The writer worked for everything I 
-                    needed. I had some questions that were 
-                    answered promptly and professionally.  
-
-                    And.... they validated that my experiences  
-                    could work towards a new career!
-                </div>
-            </div>
-
-            
-            <div className=" say-card">
-                <div className="name">
-                    Stephen Kimani
-                </div>
-
-                <div className="rate-date">
-                    <div className="rate">
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                    </div>
-
-                    <div className=" date">MAR 02,2018</div>
-                </div>
-
-                <div className="remarks">
-                    The writer worked for everything I 
-                    needed. I had some questions that were 
-                    answered promptly and professionally.  
-
-                    And.... they validated that my experiences  
-                    could work towards a new career!
-                </div>
-            </div>
-
-            
-            <div className=" say-card">
-                <div className=" name">
-                   Ann Kanyiva
-                </div>
-
-                <div className=" rate-date">
-                    <div className="rate">
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={StarIcon} className="inline rating-star" alt="Rating Star"></img>
-                        <img src={EmptyStarIcon} className="inline rating-star" alt="Rating Star"></img>
-                    </div>
-
-                    <div className="date">SEP 19,2017</div>
-                </div>
-
-                <div className="remarks">
-                    The writer worked for everything I 
-                    needed. I had some questions that were 
-                    answered promptly and professionally.  
-
-                    And.... they validated that my experiences  
-                    could work towards a new career!
-                </div>
-            </div>
- */}
-
-
-
-
+        
         </div>
 
     </div>
@@ -500,22 +381,22 @@ const [ratings,setRating]  = useState([
 
         <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2">
             <div className="input-group">
-                <label for="" >Name</label>
+                <label  >Name</label>
                 <input type="text" className="" placeholder="Type Your Name Here"></input>
             </div>
 
             <div className="input-group">
-                <label for="">Email</label>
+                <label >Email</label>
                 <input type="email" className="" placeholder="Type Your Email Here"></input>
             </div>
 
             <div className="input-group">
-                <label for="">WhatsApp Number</label>
+                <label >WhatsApp Number</label>
                 <input type="number" className="" min="0" placeholder="Type Your Whatsapp Number Here"></input>
             </div>
 
             <div className="input-group">
-                <label for="">Message</label>
+                <label >Message</label>
                 <textarea name="message" id="" cols="25" rows="10" placeholder="Type Message Here"></textarea>
             </div>
 
@@ -540,38 +421,10 @@ const [ratings,setRating]  = useState([
         </form>
     </div>
 
-    <footer>
-
-        <div className="details">
-           
-                <div className="logo">
-                    <img src={Logo} className="h-7 lg:h-8" alt="academiasteph21 logo"></img>
-                    <span className="ml-2 text-xl">
-                        AcademiaSteph21                       
-                    </span>
-                </div>
-             
-                <div className="logo">
-                    <img src={IgIcon} className="h-5 lg:h-8" alt="academiasteph21 logo"></img>
-                    <span className="ml-2 text-lg">@academiasteph21</span>
-                </div>
-
-                
-                <div className="logo">
-                    <img src={MailIcon} className="h-4 lg:h-6" alt="academiasteph21 logo"></img>
-                    <span className="ml-2 text-lg">info@academiasteph21.com</span>
-                </div>
-
-        </div>
-
-        {/* <hr className="w-3/4 thinhr "></hr> */}
-
-        <p className="py-6 text-sm cursor-pointer md:text-base text-dark-4 hover:text-gray-500">DEVELOPED BY FRANKLIN SHERA</p>
-
-
-    </footer>
+        <Footer/>
 
     </div>
+  </>
   );
 }
 

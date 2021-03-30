@@ -9,6 +9,129 @@ body , html{
 
 
 
+.overlay{
+    @apply fixed flex items-center justify-center w-full h-full ;
+    animation: OvBgAnim 6s ease-in infinite;
+}
+
+
+@keyframes OvBgAnim{
+
+    0%{
+        @apply bg-primary-2;
+    }
+
+    10%{
+        @apply bg-white;
+    }
+    
+    100%{
+       @apply bg-white;
+    }
+}
+
+
+
+.inn-overlay{
+    @apply flex flex-col items-center justify-center;
+}
+
+
+
+.inn-overlay img{
+    animation: logoBounce 6s ease-in infinite;
+}
+
+
+
+.inn-overlay span{
+    animation: textAnim 6s ease-in infinite;
+    color: white;
+    -webkit-text-stroke: 2px #11111122;
+}
+
+
+.inn-overlay span::before{
+    animation: writerAnim 4s linear infinite;
+    color: #111111;
+    -webkit-text-stroke: 0px #11111122;
+    content: attr(data-text);
+    position: absolute;
+    width: 0px;
+    overflow: hidden;
+}
+
+@keyframes writerAnim{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
+
+
+
+@keyframes logoBounce{
+    0%{
+        transform: scale(10);
+    }
+    10%{
+        transform: scale(.9);
+    }
+    15%{
+        transform: scale(2);
+    }
+    20%{
+        transform: scale(.9);
+    }
+    30%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+@keyframes textAnim{
+    0%{
+        opacity:0;
+    }
+    
+    10%{
+        opacity:0;
+    }
+    
+    25%{
+        opacity:.2;
+    }
+    
+    
+    30%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .thinhr{
     height: 1px;
     background:linear-gradient(to right,transparent ,#ffffff77,transparent);
@@ -358,6 +481,11 @@ footer{
 }
 
 
+.mid .navlink{
+   animation: opacity .1s ease-in 1s;
+}
+
+
 
 
 .nav-right , .nav-left{
@@ -411,8 +539,20 @@ footer{
     background-color: white;
     width: 100%;
     margin-left: auto;
-    
+    animation: bgEnter 1s ease-in;
 }
+
+@keyframes bgEnter{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+
 
 
 .hero{

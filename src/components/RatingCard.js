@@ -4,7 +4,7 @@ import  StarIcon from '.././images/star.svg';
 import  HalfStarIcon from '.././images/star_half_empty.svg';
 import  EmptyStarIcon from '.././images/empty_star.svg';
 
-export const RatingCard = ({cardData}) => {
+ const RatingCard = ({cardData}) => {
 
     
 
@@ -60,3 +60,6 @@ export const RatingCard = ({cardData}) => {
 
     )
 }
+
+
+export default RatingCard;

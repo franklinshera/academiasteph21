@@ -10,7 +10,7 @@ body , html{
 
 
 .overlay{
-    @apply fixed flex items-center justify-center w-full h-full ;
+    @apply fixed flex items-center justify-center w-full h-full bg-white;
     animation: OvBgAnim 6s ease-in;
 }
 
@@ -402,6 +402,10 @@ footer{
     @apply w-full my-8 sm:w-1/2 lg:w-1/2;
 }
 
+.benefit:hover{
+    @apply p-3 text-white rounded-lg bg-primary-1;
+}
+
 
 
 
@@ -544,7 +548,8 @@ footer{
 .nav-main{
     padding-left: 12%;
     padding-right: 12%;
-    @apply flex items-center justify-between bg-white lg:flex-row;
+    @apply flex items-center justify-between w-full bg-white shadow-sm lg:flex-row;
+    z-index: 999;
 
 }
 
@@ -565,6 +570,7 @@ footer{
 
 
 .hero{
+    margin-top: 60px;
     width: 100%;
     height: calc(100vh - 64px);
     background-image: url('./images/home.jpg');
@@ -631,7 +637,7 @@ footer{
 
 
 .cta p{
-    @apply mb-5;
+    /* @apply mb-2 sm:mb-2; */
     /* margin-bottom: 20px; */
 }
 
@@ -639,12 +645,22 @@ footer{
 
 
 
-.cta p , .cta button{
-    @apply m-5/100 lg:ml-15/100;
+.cta p , .strt-btn{
+    @apply m-4 lg:ml-15/100;
+    /* @apply m-5/100 lg:ml-15/100; */
     /* margin-left: 15%; */
 }
 
 
+
+.strt-btn{
+
+    @apply flex items-center justify-center w-5/6 px-2 py-2 text-base text-white rounded-full sm:text-xl sm:w-3/5 md:w-1/2 sm:px-4 sm:py-3 lg:px-8 lg:py-4 lg:text-2xl lg:w-1/2 2xl:text-3xl;
+    /* max-width: 35%; */
+
+    background: linear-gradient(100deg,#FAA63B, #F27323);
+}
+   
 
 
 
@@ -666,11 +682,3 @@ footer{
 
 
 
-.strt-btn{
-
-    @apply flex items-center justify-center w-5/6 px-2 py-2 text-base text-white rounded-full sm:text-xl sm:w-3/5 md:w-1/2 sm:px-4 sm:py-3 lg:px-8 lg:py-4 lg:text-2xl lg:w-1/2 2xl:text-3xl;
-    /* max-width: 35%; */
-
-    background: linear-gradient(100deg,#FAA63B, #F27323);
-}
-   

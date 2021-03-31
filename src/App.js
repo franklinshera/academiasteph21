@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React , { useState , useEffect } from 'react'
 import './App.css';
 
 
@@ -27,46 +27,47 @@ import Overlay from './components/Overlay';
 
 function App() {
 
-const [ratings,setRating]  = useState([
-    {
-        customerName: 'Franklin Shera',
-        rating: 3.5,
-        created_at: "JUN 28, 2020",
-        remarks: `The writer worked for everything I 
-            needed. I had some questions that were 
-            answered promptly and professionally.  
+    const [ratings,setRating]  = useState([
+        {
+            customerName: 'Franklin Shera',
+            rating: 3.5,
+            created_at: "JUN 28, 2020",
+            remarks: `The writer worked for everything I 
+                needed. I had some questions that were 
+                answered promptly and professionally.  
 
-            And.... they validated that my experiences  
-            could work towards a new career!`
-    },
-    {
-        customerName: 'Kimani Stephen',
-        rating: 4.5,
-        created_at: "MAY 09, 2018",
-        remarks: `The writer worked for everything I 
-            needed. I had some questions that were 
-            answered promptly and professionally.  
+                And.... they validated that my experiences  
+                could work towards a new career!`
+        },
+        {
+            customerName: 'Kimani Stephen',
+            rating: 4.5,
+            created_at: "MAY 09, 2018",
+            remarks: `The writer worked for everything I 
+                needed. I had some questions that were 
+                answered promptly and professionally.  
 
-            And.... they validated that my experiences  
-            could work towards a new career!`
-    },
-    {
-        customerName: 'Ann Kanyiva',
-        rating: 5,
-        created_at: "SEP 21, 2016",
-        remarks: `The writer worked for everything I 
-            needed. I had some questions that were 
-            answered promptly and professionally.  
+                And.... they validated that my experiences  
+                could work towards a new career!`
+        },
+        {
+            customerName: 'Ann Kanyiva',
+            rating: 5,
+            created_at: "SEP 21, 2016",
+            remarks: `The writer worked for everything I 
+                needed. I had some questions that were 
+                answered promptly and professionally.  
 
-            And.... they validated that my experiences  
-            could work towards a new career!`
-    }
+                And.... they validated that my experiences  
+                could work towards a new career!`
+        }
 
-
-])
-
+    ])
 
 
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, []);
 
 
 
@@ -79,7 +80,7 @@ const [ratings,setRating]  = useState([
     
     <Header/>
 
-    <div className="hero" >
+    <div id="hero" className="hero" >
 
         <div className="cta">
 
@@ -93,7 +94,10 @@ const [ratings,setRating]  = useState([
                 themselves in uniqueness.
             </p>
 
-            <button className="strt-btn">CHECKOUT OUR SOLUTIONS  <img src={RightArrow} className="inline h-5 lg:h-8 xl:ml-2 md:ml-3" alt="Check Our Solutions Button"></img></button>
+            <button onClick={(e) =>{
+                e.preventDefault();
+                window.location.hash = '#whyus';
+            }} className="strt-btn">CHECKOUT OUR SOLUTIONS  <img src={RightArrow} className="inline h-5 lg:h-8 xl:ml-2 md:ml-3" alt="Check Our Solutions Button"></img></button>
 
         </div>
         
@@ -181,7 +185,7 @@ const [ratings,setRating]  = useState([
     </div>
 
 
-    <div className="why-us">
+    <div id="whyus" className="why-us">
         <h1 className="mt-24 header-text">
             WHY CHOOSE OUR ESSAY SERVICE
         </h1>

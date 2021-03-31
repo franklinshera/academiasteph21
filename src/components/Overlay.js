@@ -5,33 +5,13 @@ import  Logo from '.././images/as21logo.png';
 const Overlay = () => {
 
     const [loading, setLoading] = useState(true)
-    const [timerOff, setTimerOff] = useState(false)
-    const [hasReady, setHasReady] = useState(false)
 
 
 
-    useEffect(() => {
-        setTimeout(() => {
-            if (hasReady) {
-                setLoading(false)
-                setTimerOff(true)
-            }
-        },3000)
-
-
-    },[])
-
-    
-    useEffect(() => {
-        
+    useEffect(() => {        
        
-          document.onreadystatechange = () => {
-            if (document.readyState === 'complete' && timerOff) {
-                setLoading(false)
-                setHasReady(true)
-            }
-          };
-          
+          document.onreadystatechange = () => (document.readyState === 'complete')  && setLoading(false);
+                    
 
     }, [])
 

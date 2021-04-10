@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Overlay from './components/Overlay';
 import Home from './pages/Home';
 import PlaceOrder from './pages/PlaceOrder';
+import FindWriter from './pages/FindWriter';
 
 
 
@@ -25,6 +26,7 @@ function App() {
           <Switch>                
             <Route path="/" exact component={Home}/>
             <Route path="/place-your-order" exact component={PlaceOrder}/>   
+            <Route path="/find-writer" exact component={FindWriter}/>   
           </Switch>    
 
         </Router>

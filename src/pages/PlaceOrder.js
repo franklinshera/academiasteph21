@@ -13,7 +13,7 @@ const PlaceOrder = () => {
 
     return (
         <div className=" place-order-page">
-            <h1>Place Order Here!</h1>
+            <h1 className="text-4xl">Place Order Here!</h1>
         </div>
     )
 }

@@ -27,7 +27,9 @@ import  RatingCard from '.././components/RatingCard';
 
 const Home = () => {
 
-    const[pageNums,setPageNum] = useState([1,2,3,4,5,6,7,8])
+            const[paperAction,setPaperAction] = useState(0)
+
+            const[pageNums,setPageNum] = useState([1,2,3,4,5,6,7,8])
         
         
             const[pageWords,setPageWord] = useState({
@@ -104,12 +106,16 @@ const Home = () => {
         
                     <p className="cta-lead">As <span className="p-1 px-2 font-semibold bg-white text-primary-1">Writers</span></p>
         
-                    <p className="cta-word">
+                    <p className="hidden sm:block cta-word">
                         We are inclined to optimum dedication in <br/>
                         providing top-quality services braced with<br/>
                         inimitable creativity and perfectionism.<br/>
                         The services we offer stand out for<br/>
                         themselves in uniqueness.
+                    </p>
+        
+                    <p className="sm:hidden cta-word">
+                        We are inclined to optimum dedication in providing top-quality services braced with inimitable creativity and perfectionism.The services we offer stand out for themselves in uniqueness.
                     </p>
         
                     <button onClick={(e) =>{
@@ -119,13 +125,14 @@ const Home = () => {
         
                 </div>
                 
-                <div className="price-calculator">
+                <div className="hidden price-calculator xl:block">
                     <h1 className="text-2xl font-bold">Price Calculator</h1>
                     <div className="calc-body">
                         <div className="calc-tabs">
-                            <span>Writing</span>
-                            <span>Rewriting</span>
-                            <span>Editing</span>
+                            
+                            <span className={(paperAction == 0) ? 'curr-tab' : 'idle-tab'} onClick={() => setPaperAction(0)}>Writing</span>
+                            <span className={(paperAction == 1) ? 'curr-tab' : 'idle-tab'} onClick={() => setPaperAction(1)}>Rewriting</span>
+                            <span className={(paperAction == 2) ? 'curr-tab' : 'idle-tab'} onClick={() => setPaperAction(2)}>Editing</span>
                         </div>
                         <div className="mt-4 essay-type">
                             <select name="essay-type" id="essay-type" className="w-full">
@@ -454,8 +461,9 @@ const Home = () => {
         
                   </div>
         
-        
-                  <button className="find-my-writer">Find My Writer</button>
+                  <Link to="/find-writer">
+                    <button className="find-my-writer">Find My Writer</button>
+                  </Link>
               </div>
         
                

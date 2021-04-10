@@ -21,7 +21,7 @@ const Header = () => {
         <>
             <nav id="navigation" className="fixed top-0 left-0 h-16 nav-main">
                 <div className="nav-left">
-                    <div className="logo">
+                    <div className="logo" onClick={(e) => window.location = '/'}>
                        {/* <Link to="/"> */}
                           <img src={Logo} className="h-8" alt="academiasteph21 logo"/>
                           <span className="ml-2 text-lg">AcademiaSteph21</span>
@@ -63,19 +63,19 @@ const Header = () => {
                                     e.preventDefault();
                                     navigateTo('#hero');
                             }}>
-                            <a href="#hero">Home</a>
+                            <a href="/#hero">Home</a>
                         </li>
                         <li className="my-8 navlink hover:border-b-2" onClick={(e) =>  {
                                 e.preventDefault();
                                 navigateTo('#services');
                          }}>
-                            <a href="#services">Services</a>
+                            <a href="/#services">Services</a>
                         </li>
                         <li className="my-8 navlink hover:border-b-2" onClick={(e) =>  {
                             e.preventDefault();
                             navigateTo('#contact');
                         }}>
-                            <a href="#contact">Contact</a>
+                            <a href="/#contact">Contact</a>
                         </li>
                         
                         

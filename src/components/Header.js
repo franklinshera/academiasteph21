@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 
+import { Link } from 'react-router-dom'
+
 import  Logo from '.././images/as21logo.png';
 
 const Header = () => {
@@ -20,8 +22,10 @@ const Header = () => {
             <nav id="navigation" className="fixed top-0 left-0 h-16 nav-main">
                 <div className="nav-left">
                     <div className="logo">
-                        <img src={Logo} className="h-8" alt="academiasteph21 logo"/>
-                        <span className="ml-2 text-lg">AcademiaSteph21</span>
+                       {/* <Link to="/"> */}
+                          <img src={Logo} className="h-8" alt="academiasteph21 logo"/>
+                          <span className="ml-2 text-lg">AcademiaSteph21</span>
+                       {/* </Link> */}
                     </div>
                 </div>
 
@@ -37,15 +41,15 @@ const Header = () => {
                 <div className=" nav-right">
 
                     <li className=" navlink hover:border-b-2" >
-                        <a href="#hero">Home</a>
+                        <a href="/#hero">Home</a>
                     </li>
 
                     <li className="navlink hover:border-b-2" >
-                        <a href="#services">Services</a>
+                        <a href="/#services">Services</a>
                     </li>
                     
                     <li className="navlink hover:border-b-2" >
-                        <a href="#contact">Contact</a>
+                        <a href="/#contact">Contact</a>
                     </li>
                 
                     

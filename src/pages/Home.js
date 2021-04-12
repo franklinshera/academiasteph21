@@ -498,9 +498,9 @@ const Home = () => {
                 <h1 className="mt-14 lg:mt-28 header-text">GET IN TOUCH WITH US</h1>
         
                 <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2">                    
-                    <InputField labelName='Name' type='text' placeholder="Type Your Name Here" />
-                    <InputField labelName='Email' type='text' placeholder="Type Your Email Here" />
-                    <InputField labelName='WhatsApp Number' type='number' placeholder="Type Your WhatsApp Number Here" />                   
+                    <InputField labelText='Name' type='text' placeholder="Type Your Name Here" />
+                    <InputField labelText='Email' type='text' placeholder="Type Your Email Here" />
+                    <InputField labelText='WhatsApp Number' type='number' placeholder="Type Your WhatsApp Number Here" />                   
                     <TextAreaInputField labelText='Message' textareaName='message' id='message' placeholder='Type Message Here'/>
                     <RadioInputField labelText='Email Me Back' inputName='mailback'/>
                     <RadioInputField labelText='Add Me On WhatsApp' inputName='addonwhatsapp'/>

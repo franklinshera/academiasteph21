@@ -1,10 +1,21 @@
 import React from 'react'
 
-const InputField = ({ labelName , type , classes , placeholder }) => {
+const InputField = ({ labelText , type ,name, classes , placeholder , parentClasses}) => {
+
+    function getSlug(){
+       return name.replace(' ', '-').toLowerCase() ?? labelText.replace(' ', '-').toLowerCase()
+    }
+
+
     return (
-        <div className="input-group">
-            <label  >{labelName}</label>
-            <input type={type ?? 'text'} className={classes} placeholder={placeholder ?? `Type ${labelName} Here`} />
+        <div className={parentClasses ? `input-group ${parentClasses}` : 'input-group'}>
+            <label  >{labelText}</label>
+            {(type === 'number') ? (
+                <input type='number' name={getSlug} id={getSlug} min='0' step='1' pattern="{0-9}" className={classes} placeholder={placeholder ?? `Type ${labelText} Here`} />
+            ) : (
+                <input type={type ?? 'text'} name={getSlug} id={getSlug}  className={classes} placeholder={placeholder ?? `Type ${labelText} Here`} />
+            )}
+            
         </div>
     )
 }

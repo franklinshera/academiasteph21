@@ -268,7 +268,7 @@ body::-webkit-scrollbar-thumb {
 
 
 
-.input-group input{
+.input-group input[type="text"],.input-group input[type="email"],.input-group input[type="number"]{
     @apply appearance-none ;
     background:
          linear-gradient(90deg,#FAA63B ,#F27323) center bottom/0 2px no-repeat , 
@@ -280,6 +280,31 @@ body::-webkit-scrollbar-thumb {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border: none;
+    outline: none;
+}
+
+
+
+
+
+.input-group input[type="file"]{
+    @apply appearance-none ;
+    padding: 12px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 3px #F3F4F6cc solid;
+    outline: none;
+}
+
+
+
+.input-group select{
+    @apply my-2 appearance-none;
+   
+    padding: 12px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 3px #F3F4F6cc solid;
     outline: none;
 }
 

@@ -146,7 +146,7 @@ body::-webkit-scrollbar-thumb {
 
 
 .place-order-page, .find-writer-page{
-    @apply flex items-center justify-center mt-20;
+    @apply flex flex-col items-center justify-center mt-20;
     min-height: 100vh;
 }
 

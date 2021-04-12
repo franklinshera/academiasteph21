@@ -18,6 +18,10 @@ import  DissertationIcon from '.././images/dissertations.svg';
 
 //components
 import  RatingCard from '.././components/RatingCard';
+import InputField from '../components/InputField'
+import RadioInputField from '../components/RadioInputField'
+import TextAreaInputField from '../components/TextAreaInputField'
+
 // import Footer from './components/Footer';
 // import Header from './components/Header';
 // import Overlay from './components/Overlay';
@@ -195,7 +199,7 @@ const Home = () => {
         
                         </div>
         
-                        <div className="mt-4 computed-price">
+                        <div className="flex justify-end px-3 mt-4 font-bold computed-price">
                             $28.00
                         </div>
         
@@ -493,45 +497,16 @@ const Home = () => {
         
                 <h1 className="mt-14 lg:mt-28 header-text">GET IN TOUCH WITH US</h1>
         
-                <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2">
-                    <div className="input-group">
-                        <label  >Name</label>
-                        <input type="text" className="" placeholder="Type Your Name Here"></input>
-                    </div>
-        
-                    <div className="input-group">
-                        <label >Email</label>
-                        <input type="email" className="" placeholder="Type Your Email Here"></input>
-                    </div>
-        
-                    <div className="input-group">
-                        <label >WhatsApp Number</label>
-                        <input type="number" className="" min="0" placeholder="Type Your Whatsapp Number Here"></input>
-                    </div>
-        
-                    <div className="input-group">
-                        <label >Message</label>
-                        <textarea name="message" id="" cols="25" rows="10" placeholder="Type Message Here"></textarea>
-                    </div>
-        
-                    <div className="radio-group">
-                        <label className="text-lg font-semibold ">Email Me Back</label>
-                       
-                        <label className="custom-check">
-                            <input type="checkbox" name="mailback" id=""></input>
-                            <span className="checkmark"></span>
-                        </label>
-                    </div>
-        
-                    <div className="radio-group">
-                        <label className="text-lg font-semibold ">Add Me On Whatsapp</label>
-                        <label className="custom-check">
-                            <input type="checkbox" name="addonwhatsapp" id=""></input>
-                            <span className="checkmark"></span>
-                        </label>
-                    </div>
-        
+                <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2">                    
+                    <InputField labelName='Name' type='text' placeholder="Type Your Name Here" />
+                    <InputField labelName='Email' type='text' placeholder="Type Your Email Here" />
+                    <InputField labelName='WhatsApp Number' type='number' placeholder="Type Your WhatsApp Number Here" />                   
+                    <TextAreaInputField labelText='Message' textareaName='message' id='message' placeholder='Type Message Here'/>
+                    <RadioInputField labelText='Email Me Back' inputName='mailback'/>
+                    <RadioInputField labelText='Add Me On WhatsApp' inputName='addonwhatsapp'/>
+
                     <button type="submit" className="btn-pri">SUBMIT</button>
+                    
                 </form>
             </div>
         

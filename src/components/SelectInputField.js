@@ -6,8 +6,8 @@ const SelectInputField = ({labelText , selectName , selectID , selectOptions , p
             <label >{labelText}</label>
             <select name={selectName} id={selectID} onChange={onChange}>
                 <option value='' selected disabled>Choose {labelText}</option>
-                {selectOptions.map(opt => (
-                     <option value={opt.value}>{opt.name}</option>
+                {selectOptions.map((opt) => (
+                     <option value={opt.value} >{opt.name}</option>
                 ))}
                
             </select>

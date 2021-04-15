@@ -322,7 +322,7 @@ const PlaceOrder = () => {
             <h1 className="text-4xl">Order Paper</h1>
             <h1 className="mt-6 text-lg text-primary-4">Paper Details</h1>
             <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2">                    
-                    <InputField labelText='Topic' type='text' placeholder="Paper Topic" onChange={(e) => orderForm.topic = e.target.value}/>
+                    <InputField labelText='Topic' name="topic" type='text' placeholder="Paper Topic" onChange={(e) => orderForm.topic = e.target.value}/>
                     <SelectInputField labelText="Type of Paper" selectName="paper-type" selectID="paper-type" selectOptions={paperTypes} onChange={(e) => orderForm.typeOfPaper = e.target.value}/>               
                     <SelectInputField labelText="Subject Area" selectName="subject-area" selectID="subject-area" selectOptions={subjectAreas} onChange={(e) => orderForm.subjectArea = e.target.value}/>               
                     <TextAreaInputField labelText='Paper Details' textareaName='message' id='message' rows='5' placeholder='Provide detailed additional information about your assignment' onChange={(e) => orderForm.paperDetails = e.target.value}/>
@@ -344,7 +344,9 @@ const PlaceOrder = () => {
                     <div className='input-group'>
                         <label >Number Of Pages</label>
                         <select name='number-of-pages' id='number-of-pages' onChange={(e) => orderForm.numberOfPages = e.target.value}>
+                            
                             <option value='' selected disabled>Choose Number Of Pages</option>
+
                             {numberOfPages.map(opt => (
                                 <option value={opt.pages} key={opt.pages}>{opt.pages} Pages / {opt.wordsPerPage} Words</option>                                
                             ))}

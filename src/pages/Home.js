@@ -35,6 +35,10 @@ const Home = () => {
         dispatch(listReviews())
     },[dispatch])
 
+
+    const reviewList = useSelector( state => state.reviewList)
+    const {reviews} = reviewList;
+
             const[paperAction,setPaperAction] = useState(0)
 
             const[pageNums,setPageNum] = useState([1,2,3,4,5,6,7,8])
@@ -53,78 +57,78 @@ const Home = () => {
                "Admission" ,"Article Review","Business Plan"
             ])
         
-            const [ratings,setRating]  = useState([
-                {
-                    customerName: 'Franklin Shera',
-                    rating: 3.5,
-                    created_at: "JUN 28, 2020",
-                    remarks: `The writer worked for everything I 
-                        needed. I had some questions that were 
-                        answered promptly and professionally.  
+            // const [ratings,setRating]  = useState([
+            //     {
+            //         customerName: 'Franklin Shera',
+            //         rating: 3.5,
+            //         created_at: "JUN 28, 2020",
+            //         remarks: `The writer worked for everything I 
+            //             needed. I had some questions that were 
+            //             answered promptly and professionally.  
         
-                        And.... they validated that my experiences  
-                        could work towards a new career!`
-                },
-                {
-                    customerName: 'Kimani Stephen',
-                    rating: 4.5,
-                    created_at: "MAY 09, 2018",
-                    remarks: `The writer worked for everything I 
-                        needed. I had some questions that were 
-                        answered promptly and professionally.  
+            //             And.... they validated that my experiences  
+            //             could work towards a new career!`
+            //     },
+            //     {
+            //         customerName: 'Kimani Stephen',
+            //         rating: 4.5,
+            //         created_at: "MAY 09, 2018",
+            //         remarks: `The writer worked for everything I 
+            //             needed. I had some questions that were 
+            //             answered promptly and professionally.  
         
-                        And.... they validated that my experiences  
-                        could work towards a new career!`
-                },
-                {
-                    customerName: 'Ann Kanyiva',
-                    rating: 5,
-                    created_at: "SEP 21, 2016",
-                    remarks: `The writer worked for everything I 
-                        needed. I had some questions that were 
-                        answered promptly and professionally.  
+            //             And.... they validated that my experiences  
+            //             could work towards a new career!`
+            //     },
+            //     {
+            //         customerName: 'Ann Kanyiva',
+            //         rating: 5,
+            //         created_at: "SEP 21, 2016",
+            //         remarks: `The writer worked for everything I 
+            //             needed. I had some questions that were 
+            //             answered promptly and professionally.  
         
-                        And.... they validated that my experiences  
-                        could work towards a new career!`
-                }
-                ,
-                {
-                    customerName: 'Jane Mutheu',
-                    rating: 3.5,
-                    created_at: "JUL 11, 2017",
-                    remarks: `The writer worked for everything I 
-                        needed. I had some questions that were 
-                        answered promptly and professionally.  
+            //             And.... they validated that my experiences  
+            //             could work towards a new career!`
+            //     }
+            //     ,
+            //     {
+            //         customerName: 'Jane Mutheu',
+            //         rating: 3.5,
+            //         created_at: "JUL 11, 2017",
+            //         remarks: `The writer worked for everything I 
+            //             needed. I had some questions that were 
+            //             answered promptly and professionally.  
         
-                        And.... they validated that my experiences  
-                        could work towards a new career!`
-                }
-                ,
-                {
-                    customerName: 'Winstone Avoze',
-                    rating: 2.5,
-                    created_at: "JAN 25, 2018",
-                    remarks: `The writer worked for everything I 
-                        needed. I had some questions that were 
-                        answered promptly and professionally.  
+            //             And.... they validated that my experiences  
+            //             could work towards a new career!`
+            //     }
+            //     ,
+            //     {
+            //         customerName: 'Winstone Avoze',
+            //         rating: 2.5,
+            //         created_at: "JAN 25, 2018",
+            //         remarks: `The writer worked for everything I 
+            //             needed. I had some questions that were 
+            //             answered promptly and professionally.  
         
-                        And.... they validated that my experiences  
-                        could work towards a new career!`
-                }
-                ,
-                {
-                    customerName: 'Agnes Nzakwa',
-                    rating: 0,
-                    created_at: "FEB 15, 2020",
-                    remarks: `The writer worked for everything I 
-                        needed. I had some questions that were 
-                        answered promptly and professionally.  
+            //             And.... they validated that my experiences  
+            //             could work towards a new career!`
+            //     }
+            //     ,
+            //     {
+            //         customerName: 'Agnes Nzakwa',
+            //         rating: 0,
+            //         created_at: "FEB 15, 2020",
+            //         remarks: `The writer worked for everything I 
+            //             needed. I had some questions that were 
+            //             answered promptly and professionally.  
         
-                        And.... they validated that my experiences  
-                        could work towards a new career!`
-                }
+            //             And.... they validated that my experiences  
+            //             could work towards a new career!`
+            //     }
         
-            ])
+            // ])
         
         
             useEffect(() => {
@@ -523,11 +527,18 @@ const Home = () => {
                 <div className="cards-list">
         
         
-                    { ratings.map( (rate,index) => (
+                    { reviews.map( (rate,index) => (
                         <RatingCard cardData={rate} key={index} />
                     ) ) }
                     
                 
+{/*         
+        
+                    { ratings.map( (rate,index) => (
+                        <RatingCard cardData={rate} key={index} />
+                    ) ) }
+                    
+                 */}
                 </div>
         
             </div>

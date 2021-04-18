@@ -3,6 +3,7 @@ import React from 'react'
 import  StarIcon from '.././images/star.svg';
 import  HalfStarIcon from '.././images/star_half_empty.svg';
 import  EmptyStarIcon from '.././images/empty_star.svg';
+// import  BadgeIcon from '.././images/prize.svg';
 
  const RatingCard = ({cardData}) => {
 

@@ -752,7 +752,7 @@ footer{
 
 
 .cta p , .strt-btn{
-    @apply m-4 lg:ml-20/100;
+    @apply m-4 md:ml-15/100 lg:ml-20/100;
     /* @apply m-4 lg:ml-15/100; */
     /* @apply m-5/100 lg:ml-15/100; */
     /* margin-left: 15%; */

@@ -1,7 +1,7 @@
 import React, { useState , useEffect } from 'react'
 import {Link} from 'react-router-dom'
 
-
+import { useDispatch ,useSelector} from 'react-redux'
 
 
 //icons
@@ -22,14 +22,18 @@ import InputField from '../components/InputField'
 import RadioInputField from '../components/RadioInputField'
 import TextAreaInputField from '../components/TextAreaInputField'
 
-// import Footer from './components/Footer';
-// import Header from './components/Header';
-// import Overlay from './components/Overlay';
 
 
-
+//actions
+import { listReviews } from '../actions/reviewActions'
 
 const Home = () => {
+
+    const dispatch =  useDispatch();
+
+    useEffect(() => {
+        dispatch(listReviews())
+    },[dispatch])
 
             const[paperAction,setPaperAction] = useState(0)
 
@@ -83,6 +87,42 @@ const Home = () => {
                         And.... they validated that my experiences  
                         could work towards a new career!`
                 }
+                ,
+                {
+                    customerName: 'Jane Mutheu',
+                    rating: 3.5,
+                    created_at: "JUL 11, 2017",
+                    remarks: `The writer worked for everything I 
+                        needed. I had some questions that were 
+                        answered promptly and professionally.  
+        
+                        And.... they validated that my experiences  
+                        could work towards a new career!`
+                }
+                ,
+                {
+                    customerName: 'Winstone Avoze',
+                    rating: 2.5,
+                    created_at: "JAN 25, 2018",
+                    remarks: `The writer worked for everything I 
+                        needed. I had some questions that were 
+                        answered promptly and professionally.  
+        
+                        And.... they validated that my experiences  
+                        could work towards a new career!`
+                }
+                ,
+                {
+                    customerName: 'Agnes Nzakwa',
+                    rating: 0,
+                    created_at: "FEB 15, 2020",
+                    remarks: `The writer worked for everything I 
+                        needed. I had some questions that were 
+                        answered promptly and professionally.  
+        
+                        And.... they validated that my experiences  
+                        could work towards a new career!`
+                }
         
             ])
         
@@ -129,7 +169,7 @@ const Home = () => {
         
                 </div>
                 
-                <div className="hidden price-calculator sm:block">
+                <div className="hidden price-calculator lg:block">
                     <h1 className="text-2xl font-bold">Price Calculator</h1>
                     <div className="calc-body">
                         <div className="calc-tabs">

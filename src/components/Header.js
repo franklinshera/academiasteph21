@@ -1,10 +1,15 @@
 import React,{useState} from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link , BrowserRouter} from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 
 import  Logo from '.././images/as21logo.png';
 
 const Header = () => {
+
+    const authUser = useSelector( state => state.authUser)
+    const { loggedInUser, auth } = authUser;
 
     const [dropNav, setdropNav] = useState(false)
 
@@ -39,7 +44,8 @@ const Header = () => {
                 </div>
 
                 <div className=" nav-right">
-
+                {!auth ?
+                  < >
                     <li className=" navlink hover:border-b-2" >
                         <a href="/#hero">Home</a>
                     </li>
@@ -51,7 +57,17 @@ const Header = () => {
                     <li className="navlink hover:border-b-2" >
                         <a href="/#contact">Contact</a>
                     </li>
-                
+                  </>
+
+                  : <>
+                    <BrowserRouter>
+                        <Link to="/in/dashboard" >
+                            {loggedInUser.name}
+                        </Link>
+                    </BrowserRouter>
+                    
+                  </>
+                 }
                     
                 </div>
             </nav>

@@ -29,15 +29,31 @@ import { listReviews } from '../actions/reviewActions'
 
 const Home = () => {
 
+    const[newMsg,setNewMsg] = useState({
+        name: "",
+        message: "",
+        email: "",
+        whatsappnumber: "",
+        mailback: false,
+        addonwhatsapp: false
+    })
+ 
+
+    const getInTouch = (e) =>{
+            e.preventDefault()
+            console.log(newMsg);
+    }
+
+
     const dispatch =  useDispatch();
+
+    const reviewList = useSelector( state => state.reviewList)
+    const {reviews} = reviewList;
 
     useEffect(() => {
         dispatch(listReviews())
     },[dispatch])
 
-
-    const reviewList = useSelector( state => state.reviewList)
-    const {reviews} = reviewList;
 
             const[paperAction,setPaperAction] = useState(0)
 
@@ -57,79 +73,7 @@ const Home = () => {
                "Admission" ,"Article Review","Business Plan"
             ])
         
-            // const [ratings,setRating]  = useState([
-            //     {
-            //         customerName: 'Franklin Shera',
-            //         rating: 3.5,
-            //         created_at: "JUN 28, 2020",
-            //         remarks: `The writer worked for everything I 
-            //             needed. I had some questions that were 
-            //             answered promptly and professionally.  
-        
-            //             And.... they validated that my experiences  
-            //             could work towards a new career!`
-            //     },
-            //     {
-            //         customerName: 'Kimani Stephen',
-            //         rating: 4.5,
-            //         created_at: "MAY 09, 2018",
-            //         remarks: `The writer worked for everything I 
-            //             needed. I had some questions that were 
-            //             answered promptly and professionally.  
-        
-            //             And.... they validated that my experiences  
-            //             could work towards a new career!`
-            //     },
-            //     {
-            //         customerName: 'Ann Kanyiva',
-            //         rating: 5,
-            //         created_at: "SEP 21, 2016",
-            //         remarks: `The writer worked for everything I 
-            //             needed. I had some questions that were 
-            //             answered promptly and professionally.  
-        
-            //             And.... they validated that my experiences  
-            //             could work towards a new career!`
-            //     }
-            //     ,
-            //     {
-            //         customerName: 'Jane Mutheu',
-            //         rating: 3.5,
-            //         created_at: "JUL 11, 2017",
-            //         remarks: `The writer worked for everything I 
-            //             needed. I had some questions that were 
-            //             answered promptly and professionally.  
-        
-            //             And.... they validated that my experiences  
-            //             could work towards a new career!`
-            //     }
-            //     ,
-            //     {
-            //         customerName: 'Winstone Avoze',
-            //         rating: 2.5,
-            //         created_at: "JAN 25, 2018",
-            //         remarks: `The writer worked for everything I 
-            //             needed. I had some questions that were 
-            //             answered promptly and professionally.  
-        
-            //             And.... they validated that my experiences  
-            //             could work towards a new career!`
-            //     }
-            //     ,
-            //     {
-            //         customerName: 'Agnes Nzakwa',
-            //         rating: 0,
-            //         created_at: "FEB 15, 2020",
-            //         remarks: `The writer worked for everything I 
-            //             needed. I had some questions that were 
-            //             answered promptly and professionally.  
-        
-            //             And.... they validated that my experiences  
-            //             could work towards a new career!`
-            //     }
-        
-            // ])
-        
+          
         
             useEffect(() => {
                 window.scrollTo(0,0)
@@ -548,15 +492,15 @@ const Home = () => {
         
                 <h1 className="mt-14 lg:mt-28 header-text">GET IN TOUCH WITH US</h1>
         
-                <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2">                    
-                    <InputField name="name" labelText='Name' type='text' placeholder="Type Your Name Here" />
-                    <InputField name="email" labelText='Email' type='text' placeholder="Type Your Email Here" />
-                    <InputField name="whatsappnumber" labelText='WhatsApp Number' type='number' placeholder="Type Your WhatsApp Number Here" />                   
-                    <TextAreaInputField labelText='Message' textareaName='message' id='message' placeholder='Type Message Here'/>
-                    <RadioInputField labelText='Email Me Back' inputName='mailback'/>
-                    <RadioInputField labelText='Add Me On WhatsApp' inputName='addonwhatsapp'/>
+                <form action="" className="w-5/6 sm:w-3/4 lg:w-3/5 mt-7 mb-14 lg:mb-28 2xl:w-1/2" onSubmit={getInTouch}>                    
+                    <InputField name="name" labelText='Name' type='text' placeholder="Type Your Name Here" onChange={(e) => setNewMsg({...newMsg, name : e.target.value}) } />
+                    <InputField name="email" labelText='Email' type='text' placeholder="Type Your Email Here" onChange={(e) => setNewMsg({...newMsg, email : e.target.value})}/>
+                    <InputField name="whatsappnumber" labelText='WhatsApp Number' type='number' placeholder="Type Your WhatsApp Number Here" onChange={(e) => setNewMsg({...newMsg, whatsappnumber : e.target.value})}/>                   
+                    <TextAreaInputField labelText='Message' textareaName='message' id='message' placeholder='Type Message Here' onChange={(e) => setNewMsg({...newMsg, message : e.target.value})}/>
+                    <RadioInputField labelText='Email Me Back' inputName='mailback' onChange={(e) => setNewMsg({...newMsg, mailback : e.target.cheked})}/>
+                    <RadioInputField labelText='Add Me On WhatsApp' inputName='addonwhatsapp' onChange={(e) => setNewMsg({...newMsg, addonwhatsapp : e.target.value})}/>
 
-                    <button type="submit" className="btn-pri">SUBMIT</button>
+                    <button type="submit"  className="btn-pri">SUBMIT</button>
                     
                 </form>
             </div>

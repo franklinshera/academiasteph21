@@ -39,7 +39,10 @@ body::-webkit-scrollbar-thumb {
     height: 100vh;
 }
 
-
+.dashboard{
+    @apply flex items-center justify-center;
+    height: 100vh;
+}
 
 
 .overlay{

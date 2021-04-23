@@ -17,6 +17,7 @@ import { useDispatch , useSelector} from 'react-redux'
 
 //actions
 import {  refreshUser } from './actions/AuthUserActions'
+import Register from './pages/auth/Register';
 
 
 function App() {
@@ -28,8 +29,10 @@ function App() {
 
   useEffect(() => {
 
-      if(!auth){
-          const storedUser = JSON.parse(localStorage.getItem("authUser"))
+    const locStorage = localStorage.getItem("authUser");
+
+      if(!auth && locStorage != undefined){
+          const storedUser = JSON.parse(locStorage)
 
           if(storedUser){
               dispatch(refreshUser(storedUser))
@@ -48,6 +51,7 @@ function App() {
         <Router>
           <Switch>  
             <Route path="/in" exact component={Login}/>   
+            <Route path="/in/register" exact component={Register}/>   
             <Route path="/in/dashboard" exact component={Dashboard}/>   
             <Route path="/place-your-order" exact component={PlaceOrder}/>   
             <Route path="/find-writer" exact component={FindWriter}/>              

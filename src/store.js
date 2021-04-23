@@ -3,11 +3,12 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { reviewsListReducer } from './reducers/reviewsListReducers'
-import { AuthUserReducer } from './reducers/AuthUserReducers'
+import { AuthUserReducer,RegisterUserReducer } from './reducers/AuthUserReducers'
 
 const reducer =  combineReducers({
     reviewList: reviewsListReducer,
-    authUser: AuthUserReducer
+    authUser: AuthUserReducer,
+    registration: RegisterUserReducer
 })
 
 

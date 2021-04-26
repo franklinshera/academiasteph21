@@ -25,11 +25,7 @@ export const loginUser = (user) => async (dispatch) => {
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data
-        })
-
-        localStorage.setItem("authUser", JSON.stringify(data.user))
-
-        
+        })  
 
     } catch (error) {
           dispatch({
@@ -64,11 +60,13 @@ export const registerUser = (user) => async (dispatch) => {
     }
 }
 
-export const refreshUser = (user) => async (dispatch) => {
+export const refreshUser = (refreshToken) => async (dispatch) => {
   
         dispatch({ type: USER_LOGIN_REQUEST })
 
-        dispatch({ type: USER_REFRESH , payload : user})
+        const { data } = await axios.post('http://localhost:5000/auth/refresh-token', { refreshToken: refreshToken })
+
+        dispatch({ type: USER_REFRESH , payload : data})
 
        
 }

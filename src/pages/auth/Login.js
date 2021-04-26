@@ -40,13 +40,7 @@ const Login = () => {
                 
         dispatch(loginUser(user))
         
-        // const logIn = await axios.post('http://localhost:5000/auth/login', user)
-
-        // const { data } = logIn;
-
-        // if(data && data.auth){
-        //     hist.push("/in/dashboard")            
-        // }
+   
            
     }
 

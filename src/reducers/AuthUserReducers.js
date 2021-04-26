@@ -14,17 +14,24 @@ import {useHistory} from 'react-router'
 
 
 
-export const AuthUserReducer = (state = {loggedInUser: {} , auth: false} , action) => {
+export const AuthUserReducer = (state = {loggedInUser: {} , auth: false, refreshToken: ''} , action) => {
     switch(action.type){
         case USER_LOGIN_REQUEST:
-            return {loading: true , loggedInUser: {} , auth: false}
+            return {loading: true , loggedInUser: {} , auth: false , refreshToken: ''}
+
         case USER_REFRESH:
-            return {loading: false , loggedInUser: action.payload , auth: true}
+            return {loading: false , loggedInUser: action.payload.user , auth: true , refreshToken:action.payload.refresh_token}
+
         case USER_LOGOUT:
             localStorage.removeItem("authUser")
-            return {loading: false , loggedInUser: {} , auth: false}
+            localStorage.removeItem("refreshToken")
+            return {loading: false , loggedInUser: {} , auth: false , refreshToken: ''}
+
         case USER_LOGIN_SUCCESS:
-            return {loading: false , loggedInUser: action.payload.user , auth: true }
+            localStorage.setItem("authUser", JSON.stringify(action.payload.user))
+            localStorage.setItem("refreshToken", JSON.stringify(action.payload.refresh_token))
+            return {loading: false , loggedInUser: action.payload.user , auth: true , refreshToken:action.payload.refresh_token}
+
         case USER_LOGIN_FAIL:
             return {loading: false , error: action.payload}
         default:
@@ -37,10 +44,13 @@ export const RegisterUserReducer = (state = {registered: false} , action) => {
     switch(action.type){
         case USER_REGISTER_REQUEST:
             return {loading: true ,registered: false}
+
         case USER_REGISTER_SUCCESS:
-            return {loading: false , registered: true ,}
+            return {loading: false , registered: true }
+
         case USER_REGISTER_FAIL:
             return {loading: false , error: action.payload}
+
         default:
             return state
     }

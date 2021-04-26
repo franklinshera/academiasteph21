@@ -29,13 +29,14 @@ function App() {
 
   useEffect(() => {
 
-    const locStorage = localStorage.getItem("authUser");
+    const refreshToken = localStorage.getItem("refreshToken");
 
-      if(!auth && locStorage != undefined){
-          const storedUser = JSON.parse(locStorage)
+      if(!auth && refreshToken != undefined){
 
-          if(storedUser){
-              dispatch(refreshUser(storedUser))
+          const storedRefreshToken = JSON.parse(refreshToken)
+
+          if(storedRefreshToken){
+              dispatch(refreshUser(storedRefreshToken))
           } 
           
       }      

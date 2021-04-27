@@ -17,22 +17,22 @@ import {useHistory} from 'react-router'
 export const AuthUserReducer = (state = {loggedInUser: {} , auth: false} , action) => {
     switch(action.type){
         case USER_LOGIN_REQUEST:
-            return {loading: true , loggedInUser: {} , auth: false }
+            return { loading: true , loggedInUser: {} , auth: false }
 
         case USER_REFRESH:
-            return {loading: false , loggedInUser: action.payload.user , auth: true }
+            return { loading: false , loggedInUser: action.payload.user , auth: true }
 
         case USER_LOGOUT:
             localStorage.removeItem("authUser")
-            return {loading: false , loggedInUser: {} , auth: false }
+            return { loading: false , loggedInUser: {} , auth: false }
 
         case USER_LOGIN_SUCCESS:
             localStorage.setItem("authUser", JSON.stringify(action.payload.user))
-            
-            return {loading: false , loggedInUser: action.payload.user , auth: true}
+                        
+            return { loading: false , loggedInUser: action.payload.user , auth: true }
 
         case USER_LOGIN_FAIL:
-            return {loading: false , error: action.payload}
+            return { loading: false , error: action.payload }
         default:
             return state
     }

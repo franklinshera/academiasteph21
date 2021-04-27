@@ -39,22 +39,18 @@ const Dashboard = () => {
         dispatch(logoutUser())
     }
 
-    const testReq = (e) =>{
+    const tReq = async (e) =>{
         e.preventDefault();
-      
-      try{
-           axios.get('http://localhost:5000')
-      }catch(err){
-          console.log(err);
-      }
-
+        await axios.get('http://localhost:5000/reviews')
     }
+
+  
 
     return (
         <div className="dashboard">
             <h1 className="block text-4xl font-bold">Logged In : As { loggedInUser.name } </h1>
             <button className="block px-5 py-3 mt-5 font-bold text-white bg-red-600" onClick={logout}>Logout</button>
-            <button className="block px-5 py-3 mt-10 font-bold text-white bg-green-600" onClick={testReq}>Test</button>
+            <button className="block px-10 py-3 mt-5 font-bold text-white bg-green-600" onClick={tReq}>T REQ</button>
         </div>
     )
 }

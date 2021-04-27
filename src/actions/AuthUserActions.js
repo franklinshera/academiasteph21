@@ -14,6 +14,19 @@ import axios from 'axios'
 
 axios.defaults.withCredentials = true;
 
+const setHeader = (token) => {
+    axios.interceptors.request.use(
+         config => {
+              config.headers.authorization = `Bearer ${token}`
+              return config;
+         },
+         error => {
+             return  Promise.reject(error)
+         }
+    )
+}
+
+
 export const loginUser = (user) => async (dispatch) => {
 
 
@@ -28,6 +41,8 @@ export const loginUser = (user) => async (dispatch) => {
             type: USER_LOGIN_SUCCESS,
             payload: data
         })  
+        
+        setHeader(data.access_token)
 
     } catch (error) {
           dispatch({
@@ -68,6 +83,8 @@ export const refreshUser = () => async (dispatch) => {
 
         const { data } = await axios.post('http://localhost:5000/auth/refresh-token')
 
+        setHeader(data.access_token)
+
         dispatch({ type: USER_REFRESH , payload : data})
 
        
@@ -75,7 +92,8 @@ export const refreshUser = () => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
 
-        const { status } = await axios.delete('http://localhost:5000/auth/logout')
+       const { status } = await axios.delete('http://localhost:5000/auth/logout')
+
        if(status == 200)
         {
             dispatch({ type: USER_LOGOUT })

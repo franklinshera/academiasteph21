@@ -20,6 +20,8 @@ import {  refreshUser } from './actions/AuthUserActions'
 import Register from './pages/auth/Register';
 
 
+
+
 function App() {
 
   const dispatch =  useDispatch();
@@ -29,15 +31,13 @@ function App() {
 
   useEffect(() => {
 
-    const refreshToken = localStorage.getItem("refreshToken");
+ 
 
-      if(!auth && refreshToken != undefined){
 
-          const storedRefreshToken = JSON.parse(refreshToken)
+      if(!auth ){
 
-          if(storedRefreshToken){
-              dispatch(refreshUser(storedRefreshToken))
-          } 
+              dispatch(refreshUser())
+         
           
       }      
 

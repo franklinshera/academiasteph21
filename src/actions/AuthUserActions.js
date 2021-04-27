@@ -12,6 +12,8 @@ import {
 import axios from 'axios'
 
 
+axios.defaults.withCredentials = true;
+
 export const loginUser = (user) => async (dispatch) => {
 
 
@@ -60,11 +62,11 @@ export const registerUser = (user) => async (dispatch) => {
     }
 }
 
-export const refreshUser = (refreshToken) => async (dispatch) => {
+export const refreshUser = () => async (dispatch) => {
   
         dispatch({ type: USER_LOGIN_REQUEST })
 
-        const { data } = await axios.post('http://localhost:5000/auth/refresh-token', { refreshToken: refreshToken })
+        const { data } = await axios.post('http://localhost:5000/auth/refresh-token')
 
         dispatch({ type: USER_REFRESH , payload : data})
 
@@ -73,7 +75,11 @@ export const refreshUser = (refreshToken) => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
 
-        dispatch({ type: USER_LOGOUT })
+        const { status } = await axios.delete('http://localhost:5000/auth/logout')
+       if(status == 200)
+        {
+            dispatch({ type: USER_LOGOUT })
+        }
 
        
 }

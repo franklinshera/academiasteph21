@@ -14,23 +14,22 @@ import {useHistory} from 'react-router'
 
 
 
-export const AuthUserReducer = (state = {loggedInUser: {} , auth: false, refreshToken: ''} , action) => {
+export const AuthUserReducer = (state = {loggedInUser: {} , auth: false} , action) => {
     switch(action.type){
         case USER_LOGIN_REQUEST:
-            return {loading: true , loggedInUser: {} , auth: false , refreshToken: ''}
+            return {loading: true , loggedInUser: {} , auth: false }
 
         case USER_REFRESH:
-            return {loading: false , loggedInUser: action.payload.user , auth: true , refreshToken:action.payload.refresh_token}
+            return {loading: false , loggedInUser: action.payload.user , auth: true }
 
         case USER_LOGOUT:
             localStorage.removeItem("authUser")
-            localStorage.removeItem("refreshToken")
-            return {loading: false , loggedInUser: {} , auth: false , refreshToken: ''}
+            return {loading: false , loggedInUser: {} , auth: false }
 
         case USER_LOGIN_SUCCESS:
             localStorage.setItem("authUser", JSON.stringify(action.payload.user))
-            localStorage.setItem("refreshToken", JSON.stringify(action.payload.refresh_token))
-            return {loading: false , loggedInUser: action.payload.user , auth: true , refreshToken:action.payload.refresh_token}
+            
+            return {loading: false , loggedInUser: action.payload.user , auth: true}
 
         case USER_LOGIN_FAIL:
             return {loading: false , error: action.payload}

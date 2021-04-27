@@ -30,18 +30,23 @@ const Dashboard = () => {
         window.scrollTo(0,0)
 
         document.querySelector('title').text = 'AcademiaSteph21 | Dashboard'
-
+        
+       
     }, [auth])
 
 
     const logout = (e) =>{
         e.preventDefault();
+       
         dispatch(logoutUser())
     }
 
     const tReq = async (e) =>{
         e.preventDefault();
-        await axios.get('http://localhost:5000/reviews')
+        window.Toast.fire({
+            icon: 'success',
+            title: 'T REQ PRESSED!'
+          })
     }
 
   

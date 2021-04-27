@@ -20,6 +20,7 @@ export const AuthUserReducer = (state = {loggedInUser: {} , auth: false} , actio
             return { loading: true , loggedInUser: {} , auth: false }
 
         case USER_REFRESH:
+            
             return { loading: false , loggedInUser: action.payload.user , auth: true }
 
         case USER_LOGOUT:

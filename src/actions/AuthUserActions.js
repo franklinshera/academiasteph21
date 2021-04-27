@@ -83,9 +83,16 @@ export const refreshUser = () => async (dispatch) => {
 
         const { data } = await axios.post('http://localhost:5000/auth/refresh-token')
 
-        setHeader(data.access_token)
+         if(data.access_token) {
+            setHeader(data.access_token)
 
-        dispatch({ type: USER_REFRESH , payload : data})
+            dispatch({ type: USER_REFRESH , payload : data})
+         }else{
+            dispatch({
+                type: USER_LOGIN_FAIL,
+                error: { message: "Unauthenticated!"} 
+            })
+         }
 
        
 }

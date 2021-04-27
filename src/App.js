@@ -21,6 +21,26 @@ import Register from './pages/auth/Register';
 
 
 
+import Swal2 from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
+const Swal = withReactContent(Swal2)
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+window.Toast = Toast;
+
+
 
 function App() {
 
@@ -31,14 +51,10 @@ function App() {
 
   useEffect(() => {
 
- 
-
-
       if(!auth ){
 
               dispatch(refreshUser())
          
-          
       }      
 
   },[])

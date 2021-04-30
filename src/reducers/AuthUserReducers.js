@@ -9,7 +9,6 @@ import {
     USER_LOGOUT
 } from '../constants/AuthUserConstants'
 
-import {useHistory} from 'react-router'
 
 
 

@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState , useEffect} from 'react'
 
 import { Link , BrowserRouter} from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -6,12 +6,13 @@ import { useSelector } from 'react-redux'
 
 import  Logo from '.././images/as21logo.png';
 
-const Header = () => {
+const Header = ({ inAdminPanel }) => {
 
     const authUser = useSelector( state => state.authUser)
     const { loggedInUser, auth } = authUser;
 
     const [dropNav, setdropNav] = useState(false)
+
 
     function navigateTo(linkto){
 
@@ -21,10 +22,13 @@ const Header = () => {
         
     }
 
+    useEffect(() => {
+        
+    },[])
 
     return (
         <>
-            <nav id="navigation" className="fixed top-0 left-0 h-16 nav-main">
+            <nav id="navigation" className={`fixed top-0 left-0 h-16 nav-main ${ inAdminPanel ? ' nav-main-ap ' : ' nav-main-dp ' }`}>
                 <div className="nav-left">
                     <div className="logo" onClick={(e) => window.location = '/'}>
                        {/* <Link to="/"> */}

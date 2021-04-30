@@ -77,9 +77,11 @@ export const registerUser = (user) => async (dispatch) => {
     }
 }
 
-export const refreshUser = () => async (dispatch) => {
+export const refreshUser = (refreshType = 0) => async (dispatch) => {
   
-        dispatch({ type: USER_LOGIN_REQUEST })
+        if(refreshType !== 1) {
+          dispatch({ type: USER_LOGIN_REQUEST })
+        } 
 
         const { data } = await axios.post('http://localhost:5000/auth/refresh-token')
 

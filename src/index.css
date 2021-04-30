@@ -34,15 +34,6 @@ body::-webkit-scrollbar-thumb {
 
 
 
-.login-screen{
-    @apply flex items-center justify-center;
-    height: 100vh;
-}
-
-.dashboard{
-    @apply flex items-center justify-center flex-col;
-    height: 100vh;
-}
 
 
 .overlay{
@@ -653,11 +644,18 @@ footer{
 
 
 .nav-main{
-    padding-left: 12%;
-    padding-right: 12%;
     @apply flex items-center justify-between w-full bg-white shadow-sm lg:flex-row;
     z-index: 999;
 
+}
+
+.nav-main-dp{
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.nav-main-ap{
+    @apply px-8;
 }
 
 .mobile-nav{
@@ -792,3 +790,87 @@ footer{
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* AUTH STYLES */
+
+
+
+
+
+
+.login-screen{
+    @apply flex items-center justify-center;
+    height: 100vh;
+}
+
+.dashboard{
+    @apply flex items-center justify-center;
+    min-height: 100vh;
+}
+
+
+.dash_overview{
+    
+
+}
+
+
+/* layout */
+.admin-layout{
+    @apply flex items-center justify-between w-full h-full mt-16;
+}
+
+.sidebar_component{
+    @apply w-1/5 ;
+    
+    background-color: #111111;
+    min-height: 100vh
+}
+
+.dash_items_component{
+    @apply w-4/5 ;
+    background:#ebf6f7;
+    min-height: 100vh
+
+}
+
+/* layout end */
+
+
+
+/* sidebar */
+
+
+.admin_sidebar{
+    @apply pt-8 pl-10;
+    height:100vh;
+}
+
+.sidebar_links{
+    @apply mt-8 ;
+}
+
+
+.sidebarlink{
+    @apply my-2 font-semibold list-none cursor-pointer hover:border-primary-1;
+}
+
+
+/* sidebar end */
+
+
+
+
+
+
+
+/* END AUTH STYLES */

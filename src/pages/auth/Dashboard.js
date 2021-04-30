@@ -4,6 +4,7 @@ import {useHistory} from 'react-router'
 
 import axios from 'axios'
 
+import AdminLayout from '../../components/auth/AdminLayout'
 
 
 //actions
@@ -41,21 +42,23 @@ const Dashboard = () => {
         dispatch(logoutUser())
     }
 
-    const tReq = async (e) =>{
-        e.preventDefault();
-        window.Toast.fire({
-            icon: 'success',
-            title: 'T REQ PRESSED!'
-          })
-    }
+   
+
+        // window.Toast.fire({
+        //     icon: 'success',
+        //     title: 'T REQ PRESSED!'
+        //   })
+  
 
   
 
     return (
         <div className="dashboard">
-            <h1 className="block text-4xl font-bold">Logged In : As { loggedInUser.name } </h1>
-            <button className="block px-5 py-3 mt-5 font-bold text-white bg-red-600" onClick={logout}>Logout</button>
-            <button className="block px-10 py-3 mt-5 font-bold text-white bg-green-600" onClick={tReq}>T REQ</button>
+            <AdminLayout>
+             <div className="dash_overview">
+                {loggedInUser.name}
+             </div>
+            </AdminLayout>
         </div>
     )
 }

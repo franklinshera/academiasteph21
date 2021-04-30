@@ -49,21 +49,36 @@ function App() {
     const authUser = useSelector( state => state.authUser)
     const { auth } = authUser;
 
-  useEffect(() => {
+    
+    const[inAdminPanel,setInAdmin] = useState(false)
 
-      if(!auth ){
+    useEffect(() => {
 
-              dispatch(refreshUser())
-         
-      }      
+        if(!auth ){
 
-  },[])
+                dispatch(refreshUser())
+          
+        }      
+
+      setInterval(() => {
+        dispatch(refreshUser(1))
+      }, 570000);
+
+      const pathname = window.location.pathname
+      var isinAdminPanel = pathname.startsWith('/in/dashboard')
+
+      setInAdmin(isinAdminPanel)  
+
+
+    },[])
    
 
   return (
   <>
-    <Overlay/>    
-    <Header/>
+    <Overlay/>   
+  
+      <Header inAdminPanel={inAdminPanel}/>
+      {/* {(!auth) &&  <Header/>} */}
 
         <Router>
           <Switch>  
@@ -75,8 +90,8 @@ function App() {
             <Route path="/" exact component={Home}/>              
           </Switch>  
         </Router>
-
-    <Footer/>
+    {(!inAdminPanel) &&  <Footer/>}
+   
   </>
   );
 }

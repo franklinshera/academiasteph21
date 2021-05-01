@@ -823,6 +823,16 @@ footer{
 
 }
 
+/* logout button */
+.admin-logout{
+    @apply ml-2 cursor-pointer;
+    
+}
+.admin-logout svg{
+   stroke: red;
+   fill: none;
+}
+/* logout button end */
 
 /* layout */
 .admin-layout{
@@ -861,7 +871,11 @@ footer{
 
 
 .sidebarlink{
-    @apply my-2 font-semibold list-none cursor-pointer hover:border-primary-1;
+    @apply my-4 text-xl font-semibold list-none cursor-pointer ;
+}
+
+.sidebarlink a {
+    @apply text-palbrowner hover:text-primary-1;
 }
 
 

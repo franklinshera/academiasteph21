@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import { useDispatch , useSelector } from 'react-redux'
 import {useHistory} from 'react-router'
 
@@ -22,6 +22,7 @@ const Dashboard = () => {
     const authUser = useSelector( state => state.authUser)
     const { loggedInUser, auth } = authUser;
 
+
     useEffect(() => {
         
         if(!auth){
@@ -36,11 +37,6 @@ const Dashboard = () => {
     }, [auth])
 
 
-    const logout = (e) =>{
-        e.preventDefault();
-       
-        dispatch(logoutUser())
-    }
 
    
 
@@ -56,7 +52,7 @@ const Dashboard = () => {
         <div className="dashboard">
             <AdminLayout>
              <div className="dash_overview">
-                {loggedInUser.name}
+                
              </div>
             </AdminLayout>
         </div>

@@ -1,13 +1,18 @@
 import React,{useState , useEffect} from 'react'
 
 import { Link , BrowserRouter} from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 
 
 import  Logo from '.././images/as21logo.png';
 
+
+//actions
+import {  logoutUser } from '../actions/AuthUserActions'
+
 const Header = ({ inAdminPanel }) => {
 
+    const dispatch = useDispatch()
     const authUser = useSelector( state => state.authUser)
     const { loggedInUser, auth } = authUser;
 
@@ -22,6 +27,14 @@ const Header = ({ inAdminPanel }) => {
         
     }
 
+    
+    const logout = (e) =>{
+        e.preventDefault();
+       
+        dispatch(logoutUser())
+    }
+
+    
     useEffect(() => {
         
     },[])
@@ -68,6 +81,10 @@ const Header = ({ inAdminPanel }) => {
                         <Link to="/in/dashboard" >
                             {loggedInUser.name}
                         </Link>
+                        
+                        <div className="admin-logout" onClick={logout}>
+                         <svg className="w-6 h-6" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                        </div>
                     </BrowserRouter>
                     
                   </>

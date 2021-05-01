@@ -3,6 +3,8 @@ import {
     USER_LOGIN_SUCCESS ,
     USER_LOGIN_FAIL,
     USER_REGISTER_REQUEST ,
+    USER_IN_ADMIN_PANEL ,
+    USER_OUT_ADMIN_PANEL,
     USER_REGISTER_SUCCESS ,
     USER_REGISTER_FAIL,
     USER_REFRESH,
@@ -49,6 +51,19 @@ export const RegisterUserReducer = (state = {registered: false} , action) => {
 
         case USER_REGISTER_FAIL:
             return {loading: false , error: action.payload}
+
+        default:
+            return state
+    }
+}
+
+export const AdminPanelReducer = (state = { inAdminPanel: false} , action) => {
+    switch(action.type){
+        case USER_IN_ADMIN_PANEL:
+            return { inAdminPanel: action.payload }
+
+        case USER_OUT_ADMIN_PANEL:
+            return { inAdminPanel: action.payload }
 
         default:
             return state

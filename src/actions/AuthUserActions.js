@@ -3,6 +3,8 @@ import {
     USER_LOGIN_SUCCESS ,
     USER_LOGIN_FAIL,
     USER_REGISTER_REQUEST ,
+    USER_IN_ADMIN_PANEL,
+    USER_OUT_ADMIN_PANEL,
     USER_REGISTER_SUCCESS ,
     USER_REGISTER_FAIL,
     USER_REFRESH,
@@ -108,5 +110,20 @@ export const logoutUser = () => async (dispatch) => {
             dispatch({ type: USER_LOGOUT })
         }
 
+       
+}
+
+export const authUserIn = () => async (dispatch) => {
+
+       
+            dispatch({ type: USER_IN_ADMIN_PANEL , payload: true })
+        
+       
+}
+export const authUserOut = () => async (dispatch) => {
+
+       
+            dispatch({ type: USER_OUT_ADMIN_PANEL , payload: false })
+        
        
 }

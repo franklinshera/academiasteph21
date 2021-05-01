@@ -2,6 +2,8 @@ import React , { useState , useEffect } from 'react'
 import './App.css';
 
 import {BrowserRouter as Router , Route, Switch} from 'react-router-dom'
+
+
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Overlay from './components/Overlay';
@@ -25,7 +27,14 @@ import Swal2 from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 
+
+
+
+
+
+
 const Swal = withReactContent(Swal2)
+
 const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
@@ -47,10 +56,15 @@ function App() {
   const dispatch =  useDispatch();
     
     const authUser = useSelector( state => state.authUser)
+    const userInAdmin = useSelector( state => state.adminPanel)
+
+    const { inAdminPanel } = userInAdmin;
+
     const { auth } = authUser;
 
-    
-    const[inAdminPanel,setInAdmin] = useState(false)
+   
+
+
 
     useEffect(() => {
 
@@ -64,11 +78,7 @@ function App() {
         dispatch(refreshUser(1))
       }, 570000);
 
-      const pathname = window.location.pathname
-      var isinAdminPanel = pathname.startsWith('/in/dashboard')
-
-      setInAdmin(isinAdminPanel)  
-
+    
 
     },[])
    
@@ -78,7 +88,6 @@ function App() {
     <Overlay/>   
   
       <Header inAdminPanel={inAdminPanel}/>
-      {/* {(!auth) &&  <Header/>} */}
 
         <Router>
           <Switch>  
@@ -90,7 +99,7 @@ function App() {
             <Route path="/" exact component={Home}/>              
           </Switch>  
         </Router>
-    {(!inAdminPanel) &&  <Footer/>}
+    {(!inAdminPanel)  &&  <Footer/>}
    
   </>
   );

@@ -15,15 +15,15 @@ body , html{
     outline: none;
 }
 
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 11px;
 }
 
-body::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: var(--scrollbarBG);
 }
 
-body::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: var(--thumbBG) ;
     border-radius: 6px;
     border: 3px solid var(--scrollbarBG);
@@ -819,7 +819,7 @@ footer{
 
 
 .dash_overview{
-    
+    @apply flex items-center justify-center;
 
 }
 

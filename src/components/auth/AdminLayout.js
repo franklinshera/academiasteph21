@@ -1,6 +1,8 @@
 import React,{ useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 
+import {useRouteMatch} from 'react-router-dom'
+
 import SideBar from './SideBar'
 
 
@@ -12,25 +14,26 @@ const AdminLayout = (props) => {
 
     const dispatch = useDispatch()
 
+
     const linkForSidebar = [
         {
             name : "Orders",
             links: [
                 {
                     name:"New Orders",
-                    url: "/in/dashboard/new-orders"
+                    url: `/in/dashboard/orders`
                 },
                 {
                     name:"Assigned Orders",
-                    url: "/in/dashboard/assigned-orders"
+                    url: `/in/dashboard/orders`
                 },
                 {
                     name:"Rejected Orders",
-                    url: "/in/dashboard/complete-orders"
+                    url: `/in/dashboard/orders`
                 },
                 {
                     name:"Completed Orders",
-                    url: "/in/dashboard/complete-orders"
+                    url: `/in/dashboard/orders`
                 },
             ]
         },
@@ -39,7 +42,7 @@ const AdminLayout = (props) => {
             links: [
                 {
                     name:"New Messages",
-                    url: "/in/dashboard/new-messages"
+                    url: `/in/dashboard/messages`
                 }
             ]
         },
@@ -48,7 +51,7 @@ const AdminLayout = (props) => {
             links: [
                 {
                     name:"Received",
-                    url: "/in/dashboard/received-payments"
+                    url: `/in/dashboard/payments`
                 }
             ]
         },
@@ -57,12 +60,12 @@ const AdminLayout = (props) => {
             links: [
                 {
                     name:"Personal Information",
-                    url: "/in/dashboard/personal-information"
+                    url: `/in/dashboard/profile`
                 },
                 {
                     name:"Account Information",
-                    url: "/in/dashboard/account-information"
-                },
+                    url: `/in/dashboard/profile`
+                }
             ]
         },
     ]

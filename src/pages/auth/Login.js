@@ -39,8 +39,13 @@ const Login = () => {
         e.preventDefault();
                 
         dispatch(loginUser(user))
-        
-   
+           
+    }
+
+    const noAccount =  (e) => {
+        e.preventDefault();
+                
+        hist.push("/in/register") 
            
     }
 
@@ -57,6 +62,7 @@ const Login = () => {
                  <label className="w-full mb-5 text-5xl text-center">Login</label>
                  <InputField labelText='Username' parentClasses="w-full" name="username" id="username" type='text' placeholder="Enter Email" onChange={(e) =>  setUser({...user, username: e.target.value})}/>
                  <InputField labelText='Password' parentClasses="w-full" name="password" id="password" type='password' placeholder="Enter  Password" onChange={(e) =>  setUser({...user,password: e.target.value})}/>
+                 <label className="block">Don't Have An Account? <span className="ml-2 font-bold cursor-pointer text-primary-3" onClick={noAccount}>Register Here</span></label>
                  <button type="submit" className="w-full font-bold sm:w-1/2 lg:w-1/3 btn-pri" >Login</button>
             </form>
         </div>

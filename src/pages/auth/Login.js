@@ -8,7 +8,7 @@ import { useDispatch , useSelector } from 'react-redux'
 //actions
 import { loginUser , refreshUser } from '../../actions/AuthUserActions'
 
-const Login = () => {
+const Login = ({ location }) => {
 
     const dispatch =  useDispatch();
     const hist = useHistory();
@@ -17,8 +17,11 @@ const Login = () => {
     const { loggedInUser, auth } = authUser;
     
     useEffect(() => {
+
+        
         if(auth){
-            hist.push("/in/dashboard")
+
+            (location.state && location.state.next) ?   hist.push(location.state.next) : hist.push("/in/dashboard")
         }
 
         

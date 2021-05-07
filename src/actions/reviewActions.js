@@ -12,7 +12,7 @@ export const listReviews = () => async (dispatch) => {
 
         dispatch({ type: REVIEWS_LIST_REQUEST })
 
-       const { data } = await axios.get('http://localhost:5000/reviews')
+       const { data } = await axios.get('/reviews')
         
 
         dispatch({

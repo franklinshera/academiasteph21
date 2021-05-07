@@ -18,7 +18,7 @@ export const fetchAcademicLevels = () => async (dispatch) => {
 
         dispatch({ type: REQUEST_ACADEMIC_LEVELS })
 
-       const { data } = await axios.get('http://localhost:5000/auth/academic-levels')
+       const { data } = await axios.get('/auth/academic-levels')
         
 
         dispatch({

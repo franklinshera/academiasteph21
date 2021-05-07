@@ -37,7 +37,7 @@ export const loginUser = (user) => async (dispatch) => {
 
         dispatch({ type: USER_LOGIN_REQUEST })
 
-       const { data } = await axios.post('http://localhost:5000/auth/login', user)
+       const { data } = await axios.post('/auth/login', user)
         
 
         dispatch({
@@ -64,7 +64,7 @@ export const registerUser = (user) => async (dispatch) => {
 
         dispatch({ type: USER_REGISTER_REQUEST })
 
-       const { data } = await axios.post('http://localhost:5000/auth/register', user)
+       const { data } = await axios.post('/auth/register', user)
         
 
         dispatch({type: USER_REGISTER_SUCCESS})
@@ -86,7 +86,7 @@ export const refreshUser = (refreshType = 0) => async (dispatch) => {
           dispatch({ type: USER_LOGIN_REQUEST })
         } 
 
-        const { data } = await axios.post('http://localhost:5000/auth/refresh-token')
+        const { data } = await axios.post('/auth/refresh-token')
 
          if(data.access_token) {
             setHeader(data.access_token)
@@ -104,7 +104,7 @@ export const refreshUser = (refreshType = 0) => async (dispatch) => {
 
 export const logoutUser = () => async (dispatch) => {
 
-       const { status } = await axios.delete('http://localhost:5000/auth/logout')
+       const { status } = await axios.delete('/auth/logout')
 
        if(status == 200)
         {

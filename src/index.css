@@ -1077,7 +1077,19 @@ footer{
 
 /* loader end */
 
+.no--levels{
+    @apply flex flex-col items-center justify-center;
+    height: 30vh;
+}
 
+.no--levels h1{
+    @apply text-lg font-bold;
+    
+}
+.no--levels p{
+    @apply text-sm font-bold text-primary-3;
+    
+}
 /* ORDER CONTROL END */
 
 

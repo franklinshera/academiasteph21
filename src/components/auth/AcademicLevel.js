@@ -20,7 +20,9 @@ const AcademicLevel = () => {
     const { allAcademicLevels , loading } = AcademicLevels;
 
     
-    
+    let[levelChange, setLevelChange] = useState(0)
+
+    const[localLoad,setLocalLoad] = useState(false)
    
     let levelForm = {
         level : "",
@@ -45,6 +47,13 @@ const AcademicLevel = () => {
     ]
 
 
+    const refreshLevel = () => {
+        setTimeout(() => {
+            setLevelChange(Date.now())
+            setLocalLoad(false)
+        } , 2000)
+    }
+
     const showModal = (aLevel) =>{
 
         window.Toast.fire({
@@ -55,13 +64,15 @@ const AcademicLevel = () => {
 
     const deleteLevel = async (id) =>{
 
-        const res = await axios.delete('http://localhost:5000/auth/academic-level/'+ id )
+        setLocalLoad(true)
+
+        const res = await axios.delete('/auth/academic-level/'+ id )
 
         
 
-        if(res.status == 201){
+        if(res.status == 200){
 
-            dispatch(fetchAcademicLevels())
+          refreshLevel()
 
         } else{
 
@@ -78,15 +89,16 @@ const AcademicLevel = () => {
     const addLevel = async (e) =>{
         e.preventDefault();
         
-
+        setLocalLoad(true)
         
-        const res = await axios.post('http://localhost:5000/auth/academic-level' , levelForm)
+        const res = await axios.post('/auth/academic-level' , levelForm)
 
         
        if(res.status == 201){
 
-            dispatch(fetchAcademicLevels())
+              refreshLevel()
 
+                 
             window.Toast.fire({
                 icon: 'success',
                 title: res.data.message
@@ -111,7 +123,7 @@ useEffect(() => {
     dispatch(fetchAcademicLevels())
     resetForm()
 
-}, [])
+}, [levelChange])
 
     return (
       
@@ -137,7 +149,7 @@ useEffect(() => {
                         
 
 
-                        { (loading) ? <DotLoader/>  :   allAcademicLevels.map((academicLevel,index) => (
+                        { (loading || localLoad) ? <DotLoader/>  :   allAcademicLevels.map((academicLevel,index) => (
                                 <div className="academic--level" >
 
                                 <div className="level" onClick={(e) => {
@@ -160,7 +172,7 @@ useEffect(() => {
 
                                             <svg onClick={(e) => {
                                                     e.preventDefault()
-                                                    deleteLevel(academicLevel.id)
+                                                    showModal(academicLevel)
                                                 }} className="h-6 hover:cursor-pointer " xmlns="http://www.w3.org/2000/svg" xmlnsXink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" fill="#0065CD">
                                                 <path d="M14.1 5.9L3 17v4h4L18.1 9.9 14.1 5.9zM15.6 4.4L18 2l4 4-2.4 2.4L15.6 4.4z" fill="#0065CD" />
                                             </svg>
@@ -183,7 +195,12 @@ useEffect(() => {
                         }
 
                         
-                       
+                       {(allAcademicLevels.length == 0) && (
+                           <div className="no--levels">
+                               <h1>We Could'nt Find Any Levels!</h1>
+                               <p>Please Try Adding More!</p>
+                            </div>
+                       ) }
                     </div>
 
                 </div>

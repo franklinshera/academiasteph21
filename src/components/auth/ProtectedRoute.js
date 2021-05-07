@@ -21,6 +21,7 @@ const ProtectedRoute = ({ component: Component , ...rest}) => {
                   if(loggedInUser != null && auth)
                   {
                       return <Component {...props} />
+                      
                   }else{
                      return (
                         <Redirect to={{ 

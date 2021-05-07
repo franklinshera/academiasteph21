@@ -58,7 +58,7 @@ export const RegisterUserReducer = (state = {registered: false} , action) => {
     }
 }
 
-export const AdminPanelReducer = (state = { inAdminPanel: false, sidebarPosition: 0} , action) => {
+export const AdminPanelReducer = (state = { inAdminPanel: false , sidebarPosition: 0} , action) => {
     switch(action.type){
         case USER_IN_ADMIN_PANEL:
             return { inAdminPanel: action.payload }

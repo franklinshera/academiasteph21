@@ -16,6 +16,7 @@ import Login from './pages/auth/Login';
 import Dashboard from './pages/auth/Dashboard';
 import Payment from './pages/auth/Payment';
 import Orders from './pages/auth/Orders';
+import OrderControl from './pages/auth/OrderControl';
 import Messages from './pages/auth/Messages';
 import Profile from './pages/auth/Profile';
 
@@ -54,6 +55,7 @@ const Toast = Swal.mixin({
 })
 
 window.Toast = Toast;
+window.Swal = Swal;
 
 
 
@@ -88,44 +90,6 @@ function App() {
     },[])
 
 
-const routes = [
-{
-  path: "/place-your-order",
-  element: PlaceOrder
-},
-{
-  path: "/find-writer",
-  element: FindWriter
-},
-{
-  path: "/in/dashboard",
-  element: Dashboard
-},
-{
-  path: "/in/dashboard/orders",
-  element: Orders
-},
-{
-  path: "/in/dashboard/messages",
-  element: Messages
-},
-{
-  path: "/in/dashboard/profile",
-  element: Profile
-},
-{
-  path: "/in/register",
-  element: Register
-},
-{
-  path: "/in",
-  element: Login
-},
-{
-  path: "/",
-  element: Home
-}
-] 
 
   return (
   <>
@@ -139,6 +103,7 @@ const routes = [
             <Route path="/find-writer" exact component={FindWriter}/>  
             <Route path="/in/register" exact component={Register}/>   
             <ProtectedRoute path={ `/in/dashboard/orders` } exact component={Orders}/>   
+            <ProtectedRoute path={ `/in/dashboard/control/order-input` } exact component={OrderControl}/>   
             <ProtectedRoute path={ `/in/dashboard/messages`} exact  component={Messages}/>   
             <ProtectedRoute path={`/in/dashboard/payments`}  exact component={Payment}/>   
             <ProtectedRoute path={`/in/dashboard/profile`}  exact component={Profile}/>                   

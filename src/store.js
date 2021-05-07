@@ -4,12 +4,14 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { reviewsListReducer } from './reducers/reviewsListReducers'
 import { AuthUserReducer,RegisterUserReducer, AdminPanelReducer } from './reducers/AuthUserReducers'
+import { OrderAcademicLevelsReducer } from './reducers/OrderReducers'
 
 const reducer =  combineReducers({
     reviewList: reviewsListReducer,
     authUser: AuthUserReducer,
     registration: RegisterUserReducer,
-    adminPanel: AdminPanelReducer
+    adminPanel: AdminPanelReducer,
+    academicLevels: OrderAcademicLevelsReducer
 })
 
 

@@ -86,12 +86,9 @@ const Home = () => {
             
     return (
           <>
-            {/* <Overlay/> */}
         
             <div className="bg-gray-100">
             
-            {/* <Header/> */}
-        
             <div id="hero" className="hero" >
         
                 <div className="cta">
@@ -475,14 +472,7 @@ const Home = () => {
                         <RatingCard cardData={rate} key={index} />
                     ) ) }
                     
-                
-{/*         
-        
-                    { ratings.map( (rate,index) => (
-                        <RatingCard cardData={rate} key={index} />
-                    ) ) }
-                    
-                 */}
+
                 </div>
         
             </div>
@@ -505,7 +495,7 @@ const Home = () => {
                 </form>
             </div>
         
-                {/* <Footer/> */}
+                
         
             </div>
          

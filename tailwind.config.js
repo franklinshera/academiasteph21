@@ -26,6 +26,7 @@ module.exports = {
         palbrown: "#54433a",
         palbrowner: "#402e32",
         palblue: "#5f89ff",
+        palbluelight: "#6989ff22",
         palhighlight: "#ebf6f7",
         asgreen:  "#1DD400",
             

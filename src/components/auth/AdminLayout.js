@@ -1,5 +1,5 @@
 import React,{ useEffect} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {useRouteMatch} from 'react-router-dom'
 
@@ -14,7 +14,10 @@ const AdminLayout = (props) => {
 
     const dispatch = useDispatch()
 
+    const authUserInAdmin = useSelector((state) => (state.adminPanel))
 
+    const { inAdminPanel , sidebarPosition } = authUserInAdmin
+    
     const linkForSidebar = [
         {
             name : "Orders",
@@ -68,12 +71,25 @@ const AdminLayout = (props) => {
                 }
             ]
         },
+        {
+            name : "Control",
+            links: [
+               {
+                name: "Order Input",
+                url: "/in/dashboard/control/order-input"
+               }
+            ],
+            
+        }
     ]
 
    
     useEffect(() => {
-
-        dispatch(authUserIn())
+        
+        // if(!inAdminPanel){
+          dispatch(authUserIn())
+        // }
+        
 
         return () => {
             dispatch(authUserOut())

@@ -7,12 +7,6 @@ const ProtectedRoute = ({ component: Component , ...rest}) => {
     const authUser = useSelector( state => state.authUser)
     const { loggedInUser , auth } = authUser;
 
-
-    window.Toast.fire({
-        icon: 'success',
-        title: 'Protected Route!'
-    })
-
     return (
             <Route
               {...rest} 

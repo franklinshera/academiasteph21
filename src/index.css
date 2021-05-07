@@ -636,7 +636,7 @@ footer{
 
 
 
-.logo{
+.logo , .logo a{
     @apply flex items-center justify-center cursor-pointer;
 }
 
@@ -781,6 +781,17 @@ footer{
 }
 
 
+.btn-blue{
+    @apply py-3 mt-10 text-white rounded-full px-11 bg-primary-3;
+}
+
+
+
+.btn-grn{
+    @apply py-3 mt-10 text-white rounded-full px-11 bg-primary-4;
+}
+
+
 
 
 .btn-pri:hover{
@@ -819,13 +830,13 @@ footer{
 
 
 .dash_overview{
-    @apply flex items-center justify-center;
+    /* @apply flex items-center justify-center; */
 
 }
 
 /* logout button */
 .admin-logout{
-    @apply ml-2 cursor-pointer;
+    @apply inline ml-2 cursor-pointer;
     
 }
 .admin-logout svg{
@@ -840,15 +851,11 @@ footer{
 }
 
 .sidebar_component{
-    @apply w-1/5 ;
     
-    background-color: #111111;
-    min-height: 100vh
 }
 
 .dash_items_component{
     @apply w-4/5 ;
-    background:#ebf6f7;
     min-height: 100vh
 
 }
@@ -861,8 +868,9 @@ footer{
 
 
 .admin_sidebar{
-    @apply pt-8 pl-10;
-    height:100vh;
+    @apply w-1/5 pt-8 pl-10;    
+    background-color: #a0afa011;    
+    min-height: 100vh
 }
 
 .sidebar_links{
@@ -874,8 +882,14 @@ footer{
     @apply my-6;
 }
 
+.active-link-border {
+    border-right: 2px  #DBE1DB solid;
+}
+
+
 .sidelinks-container{
-    @apply ml-1 ;
+    @apply py-2 pl-1 ;
+    background-color: #a0afa055; 
 }
 
 .sidebarlabel{
@@ -900,7 +914,151 @@ footer{
 
 
 
+/* ORDER CONTROL */
 
+
+.order-control{
+   /* @apply ; */
+}
+
+.order--control--tabs{
+    @apply flex items-center rounded-sm;
+    background: #a0afa055;
+}
+.vertline{
+    background-color: white;
+    width: 2px;
+    height: 30px;
+}
+
+
+.active-control-tab{
+    @apply font-bold;
+}
+
+
+.order--control--tab{
+    @apply px-5 py-2 cursor-pointer text-palbrowner ;
+}
+
+
+.order--control-tabview{
+    
+}
+
+
+
+
+/* academiclevel */
+
+
+.academic--level--group{
+    @apply flex;
+}
+
+.academic--levels{
+    @apply w-3/4 ;
+}
+
+
+.levels--table{
+    @apply p-4;
+}
+
+
+.level--table--header{
+    @apply flex py-2 border-b-2 border-palbrown;
+    /* border-bottom: 2px #111111 solid; */
+
+}
+
+.level--table--header .level , .level--table--header .status {
+    @apply w-1/2 font-bold;
+
+}
+
+
+.levels--table--body{
+    @apply flex flex-col;
+}
+
+.alevel{
+    @apply block;
+}
+
+.academic--level{
+    @apply flex px-4 my-1 rounded cursor-pointer hover:border-gray-700 hover:bg-primary-4 hover:text-white;
+    background: #6989ff22;
+}
+.academic--level .level , .academic--level .status{
+    @apply w-1/2 py-2 ;
+}
+
+.new--academic--level{
+    @apply w-1/4 px-4 py-2;
+}
+
+
+/* academiclevel end */
+
+
+
+
+/* loader */
+.level--loader{
+    @apply flex items-center justify-center;
+    min-height: 50vh;
+}
+.level--loader--dot{
+    @apply w-2 h-2 mx-2 rounded-full bg-palbrowner;
+    
+}
+
+
+.dot-1{
+    animation: dotJump ease 3s  infinite;
+}
+
+.dot-2{
+    animation: dotJump ease 3s .1s infinite;
+}
+
+.dot-3 {
+    animation: dotJump ease 3s .2s infinite;
+}
+.dot-4{
+    animation: dotJump ease 3s .3s infinite;
+}
+
+.dot-5{
+    animation: dotJump ease 3s .4s infinite;
+}
+
+.dot-6{
+    animation: dotJump ease 3s .5s infinite;
+}
+
+.dot-7{
+    animation: dotJump ease 3s .6s infinite;
+}
+
+@keyframes dotJump{
+  
+    25%{
+       transform: translateY(50px);
+    }
+
+    75%{
+       transform: translateY(-50px);
+    }
+
+}
+
+
+/* loader end */
+
+
+/* ORDER CONTROL END */
 
 
 

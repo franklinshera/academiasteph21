@@ -17,7 +17,7 @@ const SideBarLink = ({ sidelink , linkPos }) => {
 
     const [showLinks, toggleLinkGroup] =  useState(false)
 
-    const {sidebarPosition} = AdminPanel;
+    const { sidebarPosition } = AdminPanel;
 
     const linkIconColor = "#111111dd";
     const linkActiveIconColor = "#F27323";
@@ -42,8 +42,8 @@ const SideBarLink = ({ sidelink , linkPos }) => {
     }
 
     return (
-        <div className="link-holder">
-            <label className={`sidebarlabel ${(linkPos == sidebarPosition) ? ' text-primary-1 ': ' text-palbrowner ' }`} onClick={linkView}> 
+        <div className={`link-holder hover:active-link-border ${(linkPos == sidebarPosition) && ' active-link-border ' }`}>
+            <label className={`sidebarlabel hover:text-primary-1 ${(linkPos == sidebarPosition) ? ' text-primary-1 ': ' text-palbrowner ' }`} onClick={linkView}> 
             
 
                  { (sidelink.name == "Orders") && (                  
@@ -72,6 +72,13 @@ const SideBarLink = ({ sidelink , linkPos }) => {
                      <path d="M16.5625 15.898438C16.402344 15.847656 15.398438 15.394531 16.027344 13.484375L16.019531 13.484375C17.65625 11.800781 18.90625 9.085938 18.90625 6.414063C18.90625 2.308594 16.175781 0.15625 13 0.15625C9.824219 0.15625 7.109375 2.308594 7.109375 6.414063C7.109375 9.097656 8.351563 11.820313 10 13.503906C10.640625 15.1875 9.492188 15.8125 9.253906 15.898438C5.929688 17.101563 2.03125 19.292969 2.03125 21.457031C2.03125 22.039063 2.03125 21.6875 2.03125 22.269531C2.03125 25.214844 7.742188 25.886719 13.03125 25.886719C18.328125 25.886719 23.96875 25.214844 23.96875 22.269531C23.96875 21.6875 23.96875 22.039063 23.96875 21.457031C23.96875 19.230469 20.050781 17.054688 16.5625 15.898438Z" fill={(sidebarPosition == 4) ? linkActiveIconColor : linkIconColor} />
                    </svg>
                  )}      
+
+
+                 { (sidelink.name == "Control") && (
+                    <svg className="sidebarlabel-icon" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" fill={(sidebarPosition == 5) ? linkActiveIconColor : linkIconColor}>
+                      <path d="M11 4C9.332031 4 8 5.332031 8 7C8 8.492188 9.082031 9.695313 10.5 9.9375C11.238281 10.144531 12.558594 10.585938 12.84375 11.15625C13.308594 11.992188 13.050781 12.957031 12.6875 13.8125C12.265625 14.445313 12 15.183594 12 16C12 18.199219 13.800781 20 16 20C18.199219 20 20 18.199219 20 16C20 13.949219 18.433594 12.183594 16.4375 12.03125C16.417969 12.023438 16.402344 12.003906 16.375 12C14.476563 11.800781 14.125 11.550781 13.625 10.75C13.292969 10.222656 13.566406 8.988281 13.78125 8.1875C13.824219 8.082031 13.84375 7.953125 13.875 7.84375C13.949219 7.597656 14 7.46875 14 7.46875L13.9375 7.5C13.964844 7.332031 14 7.175781 14 7C14 5.445313 12.667969 4.109375 11 4 Z M 21 4C19.332031 4 18 5.332031 18 7C18 8.667969 19.332031 10 21 10C22.667969 10 24 8.667969 24 7C24 5.445313 22.667969 4.109375 21 4 Z M 6 13C4.332031 13 3 14.332031 3 16C3 17.667969 4.332031 19 6 19C7.667969 19 9 17.667969 9 16C9 14.445313 7.667969 13.109375 6 13 Z M 26 13C24.332031 13 23 14.332031 23 16C23 17.667969 24.332031 19 26 19C27.667969 19 29 17.667969 29 16C29 14.445313 27.667969 13.109375 26 13 Z M 11 22C9.332031 22 8 23.332031 8 25C8 26.667969 9.332031 28 11 28C12.667969 28 14 26.667969 14 25C14 23.445313 12.667969 22.109375 11 22 Z M 21 22C19.332031 22 18 23.332031 18 25C18 26.667969 19.332031 28 21 28C22.667969 28 24 26.667969 24 25C24 23.445313 22.667969 22.109375 21 22Z" fill={(sidebarPosition == 5) ? linkActiveIconColor : linkIconColor} />
+                    </svg>
+                 )}      
                  
                        
                 { sidelink.name }
@@ -82,6 +89,7 @@ const SideBarLink = ({ sidelink , linkPos }) => {
             { (showLinks && linkPos == sidebarPosition) && (
                 <div className="sidelinks-container">
 
+                    
                     { sidelink.links.map( (slink,index) => (
                         <li className=" sidebarlink" key={index}>
                             <svg className="inline h-4 mr-1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" fill="#5f89ff">
@@ -90,7 +98,8 @@ const SideBarLink = ({ sidelink , linkPos }) => {
                             <Link to={ slink.url } >{ slink.name }</Link>
                         </li>
                     ))}
-
+                   
+                    
                           
                 </div>
             )}

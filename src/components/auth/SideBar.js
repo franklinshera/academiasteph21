@@ -7,7 +7,9 @@ const SideBar = ({ links }) => {
 
     return (
         <div className="admin_sidebar">
-            <h1 className="text-2xl font-bold">DASHBOARD</h1>
+            <Link to="/in/dashboard">
+                <h1 className="text-2xl font-bold">DASHBOARD</h1>
+            </Link>
             <div className="sidebar_links">
             
                     {links.map((slink , index) => (

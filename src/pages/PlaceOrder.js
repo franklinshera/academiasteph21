@@ -1,9 +1,30 @@
 import React,{useEffect} from 'react'
+import { useDispatch , useSelector} from 'react-redux'
+
 import { InputField , RadioInputField , TextAreaInputField ,SelectInputField , FileInputField } from '../config/FormElements.js'
+
+
+
+import { fetchAcademicLevels } from '../actions/OrderActions'
+
+
+
+
+
+
+
+
+
+
 
 const PlaceOrder = () => {
 
-   
+    const dispatch =  useDispatch();
+    
+    const AcademicLevels = useSelector( state => state.academicLevels)
+
+
+    const { allAcademicLevels , loading } = AcademicLevels;
   
     const paperTypes = [
         {
@@ -181,24 +202,24 @@ const PlaceOrder = () => {
 
     let numberOfPages = []
     
-    const academicLevels = [
-        {
-            name : "High School",
-            value: "High School"
-        }, 
-        {
-            name : "Undergraduate",
-            value: "Undergraduate"
-        },
-        {
-            name : "Master",
-            value: "Master"
-        }, 
-        {
-            name : "Doctoral",
-            value: "Doctoral"
-        }
-    ]
+    // const academicLevels = [
+    //     {
+    //         name : "High School",
+    //         value: "High School"
+    //     }, 
+    //     {
+    //         name : "Undergraduate",
+    //         value: "Undergraduate"
+    //     },
+    //     {
+    //         name : "Master",
+    //         value: "Master"
+    //     }, 
+    //     {
+    //         name : "Doctoral",
+    //         value: "Doctoral"
+    //     }
+    // ]
 
     const urgency = [
         {
@@ -309,6 +330,10 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
+
+        dispatch(fetchAcademicLevels())
+
+        
         calcPages(120)
 
         window.scrollTo(0,0)
@@ -339,8 +364,20 @@ const PlaceOrder = () => {
                         <SelectInputField parentClasses="w-full sm:w-2/5" labelText="Spacing" selectName="spacing" selectID="spacing" selectOptions={spacingTypes} onChange={(e) => orderForm.spacing = e.target.value}/>  
                     </div>
 
-                    <SelectInputField labelText="Academic Level" selectName="academic-level" selectID="academic-level" selectOptions={academicLevels} onChange={(e) => orderForm.academicLevel = e.target.value}/>               
-                   
+             
+                    <div className='input-group'>
+                        <label >Academic Level</label>
+                        <select name="academic-level" id="academic-level" onChange={(e) => orderForm.academicLevel = e.target.value}>
+                            <option value='' selected disabled>Choose Academic Level</option>
+                            
+                            {allAcademicLevels.map((opt) => (
+                                <option value={opt.level} >{opt.level}</option>
+                            ))}
+                        
+                        </select>
+                    </div>
+
+
                     <div className='input-group'>
                         <label >Number Of Pages</label>
                         <select name='number-of-pages' id='number-of-pages' onChange={(e) => orderForm.numberOfPages = e.target.value}>

@@ -15,7 +15,6 @@ export const OrderAcademicLevelsReducer = (state = { allAcademicLevels: []} , ac
 
     
         case REQUEST_ACADEMIC_LEVELS_SUCCESS:
-            // localStorage.setItem("authUser", JSON.stringify(action.payload.user))
                         
             return { loading: false ,  allAcademicLevels: action.payload  }
 

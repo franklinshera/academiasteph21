@@ -7,7 +7,7 @@ import { InputField , RadioInputField , TextAreaInputField ,SelectInputField , F
 import DotLoader from '../DotLoader'
 
 
-import { fetchAcademicLevels } from '../../actions/OrderActions'
+import { adminFetchAcademicLevels } from '../../actions/OrderActions'
 
 const AcademicLevel = () => {
 
@@ -120,7 +120,7 @@ const AcademicLevel = () => {
 
 useEffect(() => {
     
-    dispatch(fetchAcademicLevels())
+    dispatch(adminFetchAcademicLevels())
     resetForm()
 
 }, [levelChange])
@@ -173,7 +173,7 @@ useEffect(() => {
                                             <svg onClick={(e) => {
                                                     e.preventDefault()
                                                     showModal(academicLevel)
-                                                }} className="h-6 hover:cursor-pointer " xmlns="http://www.w3.org/2000/svg" xmlnsXink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" fill="#0065CD">
+                                                }} className="h-6 hover:cursor-pointer " xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" fill="#0065CD">
                                                 <path d="M14.1 5.9L3 17v4h4L18.1 9.9 14.1 5.9zM15.6 4.4L18 2l4 4-2.4 2.4L15.6 4.4z" fill="#0065CD" />
                                             </svg>
 
